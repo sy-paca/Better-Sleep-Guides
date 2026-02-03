@@ -37,6 +37,13 @@
                 <!-- Fold component (title + author + leading title + image) -->
                 <div id="article-fold"></div>
                 
+                <div class="article-header">
+                    <span class="article-category-header category-wellness">WELLNESS</span>
+                    <div class="article-separator category-wellness"></div>
+                    <div class="article-byline">BY BETTER SLEEP GUIDES</div>
+                    <div class="article-date">February 3, 2026</div>
+                </div>
+                
                 <div class="article-content content-large">
                     <div class="article-section">
                         <p>Insomnia can feel frustrating and isolating, but you are not alone. Many people struggle with falling asleep or staying asleep. The good news is that there are natural solutions that can help without relying on medication.</p>
@@ -72,11 +79,11 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Article footer component -->
-            <div id="article-footer"></div>
         </article>
     </main>
+    
+    <!-- Article footer component -->
+    <div id="article-footer"></div>
     
     <script>
         initComponentsWhenReady(function() {
@@ -85,7 +92,7 @@
             // 1. Create fold component (title + author + image)
             document.getElementById('article-fold').innerHTML = createFold({
                 title: 'Natural Insomnia Solutions That Actually Work',
-                authorName: 'Better Sleep Guides',
+                authorName: '',
                 authorImage: '',
                 imageSrc: 'article-4-hero.jpg',
                 imageAlt: 'Insomnia solutions',

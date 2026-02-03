@@ -1,5 +1,5 @@
 // Article Footer Component
-// Standard article footer with links
+// Standard article footer with links - matches main site footer
 // Usage: createArticleFooter({ pageType: 'root' })
 
 (function() {
@@ -7,12 +7,22 @@
     
     function createArticleFooter(config = {}) {
         const { pageType = 'root' } = config;
-        const homePath = pageType === 'blog' ? '../index.html' : 'index.html';
-        const blogPath = pageType === 'blog' ? 'index.html' : '/blog/index.html';
+        const privacyPath = pageType === 'blog' ? '../privacy-policy.html' : 'privacy-policy.html';
+        const termsPath = pageType === 'blog' ? '../terms-of-service.html' : 'terms-of-service.html';
         
         return `
-            <footer class="article-footer">
-                <p>Find more helpful healthy pet info on our <a href="${homePath}">homepage</a> or explore <a href="${blogPath}">all articles</a></p>
+            <footer>
+                <div class="container footer-text">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p>&copy; 2026 Better Sleep Guides. All rights reserved.</p>
+                            <p>
+                                <a href="${privacyPath}">Privacy Policy</a> | 
+                                <a href="${termsPath}">Terms of Service</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </footer>
         `;
     }

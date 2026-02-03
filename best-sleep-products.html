@@ -37,6 +37,13 @@
                 <!-- Fold component (title + author + leading title + image) -->
                 <div id="article-fold"></div>
                 
+                <div class="article-header">
+                    <span class="article-category-header category-product">PRODUCT</span>
+                    <div class="article-separator category-product"></div>
+                    <div class="article-byline">BY BETTER SLEEP GUIDES</div>
+                    <div class="article-date">February 3, 2026</div>
+                </div>
+                
                 <div class="article-content content-large">
                     <div class="article-section">
                         <p>Creating the perfect sleep environment starts with the right products. The right sleep accessories can make the difference between tossing and turning and waking up refreshed. Here are the sleep products that actually make a difference.</p>
@@ -72,11 +79,11 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Article footer component -->
-            <div id="article-footer"></div>
         </article>
     </main>
+    
+    <!-- Article footer component -->
+    <div id="article-footer"></div>
     
     <script>
         initComponentsWhenReady(function() {
@@ -85,7 +92,7 @@
             // 1. Create fold component (title + author + image)
             document.getElementById('article-fold').innerHTML = createFold({
                 title: 'Best Sleep Products to Transform Your Bedtime Routine',
-                authorName: 'Better Sleep Guides',
+                authorName: '',
                 authorImage: '',
                 imageSrc: 'article-2-hero.jpg',
                 imageAlt: 'Best sleep products',

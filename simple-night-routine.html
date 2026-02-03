@@ -25,6 +25,7 @@
     <!-- Component bundles -->
     <script src="assets/js/components/article/fold.js"></script>
     <script src="assets/js/components/article/article-footer.js"></script>
+    <script src="assets/js/product-components-bundle.js"></script>
     
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -36,6 +37,13 @@
             <section class="w-70 mx-auto my-4">
                 <!-- Fold component (title + author + leading title + image) -->
                 <div id="article-fold"></div>
+                
+                <div class="article-header">
+                    <span class="article-category-header category-routine">ROUTINE</span>
+                    <div class="article-separator category-routine"></div>
+                    <div class="article-byline">BY BETTER SLEEP GUIDES</div>
+                    <div class="article-date">February 3, 2026</div>
+                </div>
                 
                 <div class="article-content content-large">
                     <div class="article-section">
@@ -68,16 +76,18 @@
                         <p>Your bed should feel like a cue for rest, not a second office or entertainment zone. Try to avoid working or watching intense shows in bed. When your brain links the bed with sleep, it becomes easier to fall asleep once you lie down.</p>
                     </div>
                     
+                    <div id="sleep-bioclear-showcase" class="d-flex justify-content-center align-items-center my-4"></div>
+                    
                     <div class="article-section">
                         <p>A night routine is not about perfection. It is about sending gentle, consistent signals that the day is ending. Over time, these small steps can help you fall asleep faster and wake up feeling more refreshed.</p>
                     </div>
                 </div>
             </section>
-
-            <!-- Article footer component -->
-            <div id="article-footer"></div>
         </article>
     </main>
+    
+    <!-- Article footer component -->
+    <div id="article-footer"></div>
     
     <script>
         initComponentsWhenReady(function() {
@@ -86,7 +96,7 @@
             // 1. Create fold component (title + author + image)
             document.getElementById('article-fold').innerHTML = createFold({
                 title: 'A Simple Night Routine That Helps You Fall Asleep Faster',
-                authorName: 'Better Sleep Guides',
+                authorName: '',
                 authorImage: '',
                 imageSrc: 'article-1-hero.jpg',
                 imageAlt: 'Night routine for better sleep',
@@ -94,11 +104,20 @@
                 pageType: pageType
             });
             
-            // 2. Create article footer
+            // 2. Create product showcase
+            document.getElementById('sleep-bioclear-showcase').innerHTML = createProductShowcase({
+                image: 'product/bioclear-transparent-tilted.png',
+                alt: 'Sleep BioClear⁺ Magnesium Spray',
+                description: 'Sleep BioClear⁺ Magnesium Spray',
+                url: '#',
+                pageType: pageType
+            });
+            
+            // 3. Create article footer
             document.getElementById('article-footer').innerHTML = createArticleFooter({
                 pageType: pageType
             });
-        }, { waitForArticle: true });
+        }, { waitForArticle: true, waitForProduct: true });
     </script>
 </body>
 

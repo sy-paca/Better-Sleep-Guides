@@ -13,13 +13,13 @@ function insertHeadElements(pageType = 'root') {
         // Create the head elements
         const headElements = `
             <!-- Favicon -->
-            <link rel="icon" type="image/x-icon" href="${assetPath}/images/favicon.ico">
-            <link rel="icon" type="image/png" sizes="16x16" href="${assetPath}/images/favicon-16x16.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="${assetPath}/images/favicon-32x32.png">
-            <link rel="apple-touch-icon" sizes="180x180" href="${assetPath}/images/apple-touch-icon.png">
-            <link rel="manifest" href="${assetPath}/images/site.webmanifest">
-            <link rel="icon" type="image/png" sizes="192x192" href="${assetPath}/images/android-chrome-192x192.png">
-            <link rel="icon" type="image/png" sizes="512x512" href="${assetPath}/images/android-chrome-512x512.png">
+            <link rel="icon" type="image/x-icon" href="${assetPath}/images/favicon/favicon.ico">
+            <link rel="icon" type="image/png" sizes="16x16" href="${assetPath}/images/favicon/favicon-16x16.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="${assetPath}/images/favicon/favicon-32x32.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="${assetPath}/images/favicon/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="192x192" href="${assetPath}/images/favicon/android-chrome-192x192.png">
+            <link rel="icon" type="image/png" sizes="512x512" href="${assetPath}/images/favicon/android-chrome-512x512.png">
+            <link rel="manifest" href="${assetPath}/images/favicon/site.webmanifest">
 
             <!-- Additional Meta Tags -->
             <meta name="theme-color" content="#C9A8B8">
@@ -162,7 +162,8 @@ function insertFooter(pageType = 'root') {
             if (!document.querySelector('nav')) {
                 insertNavigation(pageType, currentPage);
             }
-            if (!document.querySelector('footer')) {
+            // Only insert main footer if there's no article-footer element (article pages handle their own footer)
+            if (!document.querySelector('footer') && !document.getElementById('article-footer')) {
                 insertFooter(pageType);
             }
         });
@@ -171,7 +172,8 @@ function insertFooter(pageType = 'root') {
         if (!document.querySelector('nav')) {
             insertNavigation(pageType, currentPage);
         }
-        if (!document.querySelector('footer')) {
+        // Only insert main footer if there's no article-footer element (article pages handle their own footer)
+        if (!document.querySelector('footer') && !document.getElementById('article-footer')) {
             insertFooter(pageType);
         }
     }

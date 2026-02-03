@@ -55,42 +55,54 @@
 
         <!-- Articles Gallery -->
         <div class="container my-5">
+            <!-- Category Filters -->
+            <div class="category-filters mb-4">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="routine">Routine</button>
+                <button class="filter-btn" data-category="wellness">Wellness</button>
+                <button class="filter-btn" data-category="product">Product</button>
+            </div>
             <div class="articles-gallery">
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="routine">
                     <img src="assets/images/article-1-hero.jpg" alt="Night routine for better sleep">
                     <div class="gallery-card-content">
+                        <span class="article-category category-routine">ROUTINE</span>
                         <h5>A Simple Night Routine That Helps You Fall Asleep Faster</h5>
                         <p>Learn how to create gentle, consistent habits that signal your body and mind it's time to rest.</p>
                         <a href="simple-night-routine.html" class="custom-btn btn-sm shadow-sm">Read More</a>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="product">
                     <img src="assets/images/article-2-hero.jpg" alt="Best sleep products">
                     <div class="gallery-card-content">
+                        <span class="article-category category-product">PRODUCT</span>
                         <h5>Best Sleep Products to Transform Your Bedtime Routine</h5>
                         <p>Discover the sleep products that actually make a difference, from weighted blankets to silk pillowcases.</p>
                         <a href="best-sleep-products.html" class="custom-btn btn-sm shadow-sm">Read More</a>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="wellness">
                     <img src="assets/images/article-3-hero.jpg" alt="Sleep hygiene tips">
                     <div class="gallery-card-content">
+                        <span class="article-category category-wellness">WELLNESS</span>
                         <h5>Essential Sleep Hygiene Tips for Better Rest</h5>
                         <p>Learn the habits and practices that lead to better, more restful sleep every night.</p>
                         <a href="sleep-hygiene-tips.html" class="custom-btn btn-sm shadow-sm">Read More</a>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="wellness">
                     <img src="assets/images/article-4-hero.jpg" alt="Insomnia solutions">
                     <div class="gallery-card-content">
+                        <span class="article-category category-wellness">WELLNESS</span>
                         <h5>Natural Insomnia Solutions That Actually Work</h5>
                         <p>Discover gentle approaches to help you fall asleep and stay asleep without medication.</p>
                         <a href="insomnia-solutions.html" class="custom-btn btn-sm shadow-sm">Read More</a>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="routine">
                     <img src="assets/images/article-5-hero.jpg" alt="Morning routine for better sleep">
                     <div class="gallery-card-content">
+                        <span class="article-category category-routine">ROUTINE</span>
                         <h5>How Your Morning Routine Affects Your Sleep</h5>
                         <p>Discover morning habits that set you up for better sleep and more energy throughout the day.</p>
                         <a href="morning-routine-better-sleep.html" class="custom-btn btn-sm shadow-sm">Read More</a>
@@ -99,5 +111,33 @@
             </div>
         </div>
     </main>
+    
+    <script>
+        // Category Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    galleryCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
