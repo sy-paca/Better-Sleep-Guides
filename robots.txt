@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://healthpetinsider.com/sitemap.xml
+
+# Crawl delay (optional - adjust as needed)
+Crawl-delay: 1
+
+# Disallow common directories that shouldn't be indexed
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: *.pdf$
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Allow important pages
+Allow: /advertorial*.html
+Allow: /5-ways-to-manage-allergens.html
+Allow: /5-must-have-products.html
+Allow: /love-your-cat-lose-the-allergies.html
+Allow: /best-supplement-for-cat-allergies.html
+Allow: /best-cat-allergy-spray.html
+Allow: /index.html
