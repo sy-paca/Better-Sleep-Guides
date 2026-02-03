@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Essential sleep hygiene tips to improve your sleep quality. Learn the habits and practices that lead to better, more restful sleep.">
+    <meta name="keywords"
+        content="sleep hygiene, sleep tips, better sleep, sleep quality, sleep habits, insomnia tips, sleep routine, healthy sleep">
+    <title>Essential Sleep Hygiene Tips for Better Rest | Better Sleep Guides</title>
+
+    <!-- Head components (FOUC prevention, tracking init) -->
+    <script src="assets/js/head-components.js"></script>
+    
+    <!-- Tracking utilities (makes f() and getCookie() available) -->
+    <script src="assets/js/tracking.js"></script>
+    
+    <!-- Component initialization helper (must load before bundles) -->
+    <script src="assets/js/component-init.js"></script>
+    
+    <!-- Main JavaScript (navigation, footer) -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Component bundles -->
+    <script src="assets/js/components/article/fold.js"></script>
+    <script src="assets/js/components/article/article-footer.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Navigation will be auto-inserted here -->
+    <main>
+        <article class="advertorial">
+            <section class="w-70 mx-auto my-4">
+                <!-- Fold component (title + author + leading title + image) -->
+                <div id="article-fold"></div>
+                
+                <div class="article-content content-large">
+                    <div class="article-section">
+                        <p>Sleep hygiene refers to the habits and practices that set you up for quality sleep. Good sleep hygiene is not about perfection—it is about creating an environment and routine that supports your body's natural sleep process.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Keep a Consistent Sleep Schedule</h2>
+                        <p>Going to bed and waking up at the same time every day, even on weekends, helps regulate your body's internal clock. Your brain learns when to release sleep hormones and when to wake up naturally.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Create a Sleep-Friendly Environment</h2>
+                        <p>Your bedroom should be cool, dark, and quiet. Aim for a temperature around 65 to 68 degrees Fahrenheit. Use blackout curtains or a sleep mask to block light, and consider earplugs or a white noise machine if noise is an issue.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Limit Caffeine and Alcohol</h2>
+                        <p>Caffeine can stay in your system for up to eight hours, so avoid it in the afternoon and evening. While alcohol might make you feel sleepy initially, it disrupts your sleep cycle later in the night.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Get Regular Exercise</h2>
+                        <p>Regular physical activity can help you fall asleep faster and enjoy deeper sleep. However, try to finish intense workouts at least a few hours before bedtime, as exercise can be energizing.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Manage Stress Before Bed</h2>
+                        <p>Stress and worry can keep your mind racing at night. Try journaling, meditation, or gentle stretching before bed to help your mind unwind. Write down your worries so your brain does not have to hold onto them.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <p>Sleep hygiene is a practice, not a destination. Start with one or two changes and build from there. Small, consistent improvements can lead to significantly better sleep over time.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Article footer component -->
+            <div id="article-footer"></div>
+        </article>
+    </main>
+    
+    <script>
+        initComponentsWhenReady(function() {
+            const pageType = window.location.pathname.includes('/blog/') ? 'blog' : 'root';
+            
+            // 1. Create fold component (title + author + image)
+            document.getElementById('article-fold').innerHTML = createFold({
+                title: 'Essential Sleep Hygiene Tips for Better Rest',
+                authorName: 'Better Sleep Guides',
+                authorImage: '',
+                imageSrc: 'article-3-hero.jpg',
+                imageAlt: 'Sleep hygiene tips',
+                imageCaption: '',
+                pageType: pageType
+            });
+            
+            // 2. Create article footer
+            document.getElementById('article-footer').innerHTML = createArticleFooter({
+                pageType: pageType
+            });
+        }, { waitForArticle: true });
+    </script>
+</body>
+
+</html>

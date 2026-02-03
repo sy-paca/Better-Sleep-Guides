@@ -100,20 +100,12 @@ function insertNavigation(pageType = 'root', currentPage = '') {
     const navigationHTML = `
         <header>
             <nav>
-                <a href="${homePath}"><img src="${logoPath}" alt="Better Sleep Guides Logo" id="logo"></a>
-                <ul class="p-0 mb-0">
-                    <li><a href="${blogPath}" ${currentPage === 'blog' ? 'class="active"' : ''}>Articles</a></li>
-                </ul>
+                <a href="${homePath}" class="nav-brand">
+                    <img src="${logoPath}" alt="Better Sleep Guides Logo" id="logo">
+                    <span class="brand-text">Better Sleep Guides</span>
+                </a>
             </nav>
         </header>
-        <section class="scroll-banner py-2">
-            <div class="scroll-content">
-                <span>🌙  Sleep Wellness Tips &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; ✨  Night Routine Guides &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🛏️  Bedtime Essentials &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🌙  Restful Nights &nbsp;&nbsp;&nbsp;&nbsp;•</span>
-                <span>🌙  Sleep Wellness Tips &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; ✨  Night Routine Guides &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🛏️  Bedtime Essentials &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🌙  Restful Nights &nbsp;&nbsp;&nbsp;&nbsp;•</span>
-                <span>🌙  Sleep Wellness Tips &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; ✨  Night Routine Guides &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🛏️  Bedtime Essentials &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🌙  Restful Nights &nbsp;&nbsp;&nbsp;&nbsp;•</span>
-                <span>🌙  Sleep Wellness Tips &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; ✨  Night Routine Guides &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🛏️  Bedtime Essentials &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 🌙  Restful Nights &nbsp;&nbsp;&nbsp;&nbsp;•</span>
-            </div>
-          </section>
     `;
     
     // Insert navigation at the beginning of body

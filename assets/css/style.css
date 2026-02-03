@@ -34,15 +34,17 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    font-style: normal;
+    line-height: 1.3;
 }
 
 body, p, li, span, a {
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.6;
     color: #5A5A5A;
 }
 
@@ -94,16 +96,19 @@ body > header {
     color: #5A5A5A;
     padding: 0;
     border-bottom: 1px solid #E8D5D9;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 nav {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 1.5rem 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    position: relative;
 }
 
 nav h1 {
@@ -111,63 +116,40 @@ nav h1 {
     font-weight: 700;
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #5A5A5A;
+    transition: opacity 0.3s ease;
+}
+
+.nav-brand:hover {
+    opacity: 0.8;
+}
+
 #logo {
-    height: 280px;
+    height: 80px;
     width: auto;
     object-fit: contain;
     display: block;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    position: absolute;
-    right: 1.5rem;
-}
-
-nav a {
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif !important;
+    letter-spacing: 0.3px;
     color: #5A5A5A;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    text-transform: none;
-    letter-spacing: 0.5px;
-    transition: color 0.3s ease;
+    line-height: 1.3;
+    font-style: normal;
 }
 
-nav a:hover,
-nav a.active {
-    color: #C9A8B8;
-    font-weight: 600;
-}
 
 /* ============================================
    SCROLL BANNER
    ============================================ */
-.scroll-banner {
-    background-color: #C9A8B8;
-    overflow: hidden;
-}
-
-.scroll-content {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll-left 60s linear infinite;
-    font-size: 1.1rem;
-    color: #FFFFFF;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-}
-
-@keyframes scroll-left {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
 
 /* ============================================
    BUTTONS
@@ -238,11 +220,20 @@ nav a.active {
     color: #5A5A5A;
 }
 
+.hero-section.py-3 {
+    padding: 40px 20px;
+}
+
 .hero-section h1 {
     font-size: 72px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.2em;
     margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-section h1.text-center {
+    font-size: 84px;
 }
 
 .hero-section p {
@@ -259,8 +250,9 @@ nav a.active {
 
 .welcome-section h2 {
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 20px;
+    letter-spacing: 0.5px;
 }
 
 .welcome-section p {
@@ -283,10 +275,11 @@ nav a.active {
 }
 
 .quote-author {
-    font-weight: 700;
+    font-weight: 500;
     font-size: 16px;
     margin-top: 10px;
     color: #2F2E2E;
+    letter-spacing: 0.5px;
 }
 
 /* ============================================
@@ -335,14 +328,164 @@ nav a.active {
 section h3 {
     color: #000;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 1rem;
     border-bottom: 2px solid #000;
     padding-bottom: 0.5rem;
+    letter-spacing: 0.3px;
 }
 
 .card-text {
     font-size: 1rem;
+}
+
+/* Articles Gallery Layout */
+.articles-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Limit index page to max 6 entries */
+#articles .articles-gallery .gallery-card:nth-child(n+7) {
+    display: none;
+}
+
+.gallery-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.gallery-card-content h5 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    color: #5A5A5A;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.3px;
+}
+
+.gallery-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #5A5A5A;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+.gallery-card-content .custom-btn {
+    align-self: center;
+    margin-top: auto;
+}
+
+/* Article Cards on Index Page */
+#articles .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+
+#articles .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+#articles .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#articles .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: 100%;
+}
+
+#articles .card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+    width: 100%;
+}
+
+#articles .card-body .custom-btn {
+    align-self: center;
+    margin-top: auto;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Read All Link with Arrow */
+.read-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5A5A5A;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.read-all-link:hover {
+    color: #C9A8B8;
+    gap: 0.75rem;
+}
+
+.read-all-link i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.read-all-link:hover i {
+    transform: translateX(4px);
 }
 
 /* ============================================
@@ -355,18 +498,20 @@ section h3 {
 
 .fold-title {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 1rem;
     line-height: 1.2;
     color: #5A5A5A;
+    letter-spacing: 0.5px;
 }
 
 .fold-leading-title {
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 1.5rem;
     color: #6B6B6B;
     font-style: italic;
+    letter-spacing: 0.3px;
 }
 
 .fold-image-wrapper {
@@ -478,7 +623,7 @@ div[id$="-ad"].component-loaded {
     padding: 24px 28px;
     margin: 32px 0;
     border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     position: relative;
 }
 
@@ -496,11 +641,13 @@ div[id$="-ad"].component-loaded {
 
 .ad-headline {
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 400;
     color: #222;
     margin-bottom: 12px;
     text-align: center;
     line-height: 1.3;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.3px;
 }
 
 .ad-body {
@@ -604,11 +751,12 @@ div[id$="-ad"].component-loaded {
    ============================================ */
 .content-large h2 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-top: 40px;
     margin-bottom: 20px;
     line-height: 1.3;
     color: #222;
+    letter-spacing: 0.3px;
 }
 
 .content-large h2:first-of-type {
@@ -617,11 +765,12 @@ div[id$="-ad"].component-loaded {
 
 .content-large h3 {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-top: 30px;
     margin-bottom: 15px;
     line-height: 1.4;
     color: #222;
+    letter-spacing: 0.3px;
 }
 
 .content-large p {
@@ -810,10 +959,11 @@ div[id$="-ad"].component-loaded {
 .testimonial-title {
     color: #5A5A5A;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 400;
     text-align: center;
     margin-bottom: 30px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.5px;
 }
 
 .testimonial-carousel {
@@ -865,7 +1015,7 @@ div[id$="-ad"].component-loaded {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #5A5A5A;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .testimonial-source {
@@ -873,7 +1023,7 @@ div[id$="-ad"].component-loaded {
     font-size: 0.9rem;
     color: #666;
     margin-top: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .testimonial-navigation {
@@ -966,7 +1116,8 @@ div[id$="-ad"].component-loaded {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #5A5A5A;
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 0.3px;
 }
 
 .gift-card p {
@@ -1018,6 +1169,11 @@ footer {
     font-size: 0.85rem;
     margin-top: 2rem;
     border-top: 1px solid #E8D5D9;
+}
+
+footer a {
+    color: #8ba8f0;
+    text-decoration: none;
 }
 
 /* ============================================
@@ -1115,14 +1271,19 @@ footer {
 /* Tablet & Mobile: max-width 768px */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
+        padding: 1rem;
     }
     
-    nav ul {
-        position: static;
-        justify-content: center;
+    #logo {
+        height: 60px;
+    }
+    
+    .brand-text {
+        font-size: 1.2rem;
+    }
+    
+    .nav-brand {
+        gap: 0.75rem;
     }
 
     nav ul {
@@ -1368,6 +1529,27 @@ footer {
     .card {
         margin: 15px 0;
         padding: 15px !important;
+    }
+
+    .articles-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .gallery-card img {
+        height: 200px;
+    }
+
+    .gallery-card-content {
+        padding: 1.25rem;
+    }
+
+    .gallery-card-content h5 {
+        font-size: 1.3rem;
+    }
+
+    .hero-section h1.text-center {
+        font-size: 48px;
     }
 
     .card-title {
