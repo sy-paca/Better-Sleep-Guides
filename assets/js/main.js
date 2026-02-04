@@ -10,9 +10,9 @@ function insertHeadElements(pageType = 'root') {
     
     // Only add favicon links if they don't exist
     if (!faviconExists) {
-        // Create the head elements
-        const headElements = `
-            <!-- Favicon -->
+    // Create the head elements
+    const headElements = `
+        <!-- Favicon -->
             <link rel="icon" type="image/x-icon" href="${assetPath}/images/favicon/favicon.ico">
             <link rel="icon" type="image/png" sizes="16x16" href="${assetPath}/images/favicon/favicon-16x16.png">
             <link rel="icon" type="image/png" sizes="32x32" href="${assetPath}/images/favicon/favicon-32x32.png">
@@ -21,13 +21,13 @@ function insertHeadElements(pageType = 'root') {
             <link rel="icon" type="image/png" sizes="512x512" href="${assetPath}/images/favicon/android-chrome-512x512.png">
             <link rel="manifest" href="${assetPath}/images/favicon/site.webmanifest">
 
-            <!-- Additional Meta Tags -->
+        <!-- Additional Meta Tags -->
             <meta name="theme-color" content="#C9A8B8">
             <meta name="msapplication-TileColor" content="#C9A8B8">
-        `;
-        
-        // Insert the elements into the head
-        document.head.insertAdjacentHTML('beforeend', headElements);
+    `;
+    
+    // Insert the elements into the head
+    document.head.insertAdjacentHTML('beforeend', headElements);
     }
     
     // Always load stylesheets (check if already loaded)
@@ -35,7 +35,7 @@ function insertHeadElements(pageType = 'root') {
                              document.querySelector('link[href*="style.css"]');
     
     if (!styleSheetExists) {
-        loadStylesheets(assetPath);
+    loadStylesheets(assetPath);
     } else {
         // Stylesheets already loaded, show content immediately
         setTimeout(() => {
@@ -96,13 +96,18 @@ function insertNavigation(pageType = 'root', currentPage = '') {
     const logoPath = pageType === 'blog' ? '../assets/images/logo/bsg-logo.png' : 'assets/images/logo/bsg-logo.png';
     const blogPath = pageType === 'blog' ? 'index.html' : 'blog/index.html';
     
-    // Create navigation HTML
+    // Check if we're on an article page (has article-fold element)
+    const isArticlePage = document.getElementById('article-fold') !== null;
+    
+    // Create navigation HTML - show brand text only on non-article pages
+    const brandTextHTML = isArticlePage ? '' : '<span class="brand-text">Better Sleep Guides</span>';
+    
     const navigationHTML = `
         <header>
             <nav>
                 <a href="${homePath}" class="nav-brand">
                     <img src="${logoPath}" alt="Better Sleep Guides Logo" id="logo">
-                    <span class="brand-text">Better Sleep Guides</span>
+                    ${brandTextHTML}
                 </a>
             </nav>
         </header>
