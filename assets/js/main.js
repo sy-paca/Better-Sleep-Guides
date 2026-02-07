@@ -12,13 +12,13 @@ function insertHeadElements(pageType = 'root') {
     if (!faviconExists) {
     // Create the head elements
     const headElements = `
-        <!-- Favicon -->
-            <link rel="icon" type="image/x-icon" href="${assetPath}/images/favicon/favicon.ico">
-            <link rel="icon" type="image/png" sizes="16x16" href="${assetPath}/images/favicon/favicon-16x16.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="${assetPath}/images/favicon/favicon-32x32.png">
-            <link rel="apple-touch-icon" sizes="180x180" href="${assetPath}/images/favicon/apple-touch-icon.png">
-            <link rel="icon" type="image/png" sizes="192x192" href="${assetPath}/images/favicon/android-chrome-192x192.png">
-            <link rel="icon" type="image/png" sizes="512x512" href="${assetPath}/images/favicon/android-chrome-512x512.png">
+        <!-- Favicon (Better Sleep Guides) -->
+            <link rel="icon" type="image/x-icon" href="${assetPath}/images/favicon/bsg-favicon.ico">
+            <link rel="icon" type="image/png" sizes="16x16" href="${assetPath}/images/favicon/bsg-favicon-16x16.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="${assetPath}/images/favicon/bsg-favicon-32x32.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="${assetPath}/images/favicon/bsg-apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="192x192" href="${assetPath}/images/favicon/bsg-android-chrome-192x192.png">
+            <link rel="icon" type="image/png" sizes="512x512" href="${assetPath}/images/favicon/bsg-android-chrome-512x512.png">
             <link rel="manifest" href="${assetPath}/images/favicon/site.webmanifest">
 
         <!-- Additional Meta Tags -->
