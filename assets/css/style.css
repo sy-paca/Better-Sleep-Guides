@@ -2015,6 +2015,436 @@ footer a:hover {
     }
 }
 
+/* ============================================
+   ADVERTORIAL RANKING PAGE
+   ============================================ */
+
+/* Centered content wrapper */
+.advertorial-content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Rank badges */
+.rank-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+.rank-top    { background-color: #802030; color: #fff; }
+.rank-second { background-color: #9A5060; color: #fff; }
+.rank-third  { background-color: #C9A8B8; color: #fff; }
+.rank-fourth { background-color: #D4B8C4; color: #5A5A5A; }
+.rank-fifth  { background-color: #E8D5D9; color: #5A5A5A; }
+
+/* Grade badge */
+.grade-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+}
+.grade-a-plus { background-color: #802030; color: #fff; }
+.grade-a      { background-color: #9A5060; color: #fff; }
+.grade-b-plus { background-color: #C9A8B8; color: #fff; }
+.grade-b      { background-color: #E8D5D9; color: #5A5A5A; }
+
+/* Score display */
+.score-display {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #802030;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+}
+.score-display span {
+    font-size: 0.9rem;
+    color: #8B8B8B;
+    font-weight: 400;
+}
+
+/* Product ranking card */
+.product-ranking-block {
+    background: #fff;
+    border: 1px solid #E8D5D9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(128, 32, 48, 0.07);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.product-ranking-header {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.product-ranking-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background-color: #F5F0F2;
+}
+
+.product-ranking-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.product-ranking-meta h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+    color: #222;
+}
+
+.product-ranking-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+/* Rating bars */
+.rating-bars {
+    margin: 1.25rem 0;
+}
+
+.rating-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.rating-bar-label {
+    width: 130px;
+    font-size: 0.85rem;
+    color: #5A5A5A;
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.rating-bar-track {
+    flex: 1;
+    height: 8px;
+    background-color: #F0E8EC;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rating-bar-fill {
+    height: 100%;
+    background-color: #802030;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.rating-bar-value {
+    width: 36px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #802030;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+}
+
+/* Pros / cons grid */
+.pros-cons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+
+.pros-list,
+.cons-list {
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.pros-list {
+    background-color: #F0F7F0;
+    border: 1px solid #C8E0C8;
+}
+
+.cons-list {
+    background-color: #FDF5F5;
+    border: 1px solid #E8C8C8;
+}
+
+.pros-list strong,
+.cons-list strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
+}
+
+.pros-list strong { color: #3A7A3A; }
+.cons-list strong { color: #8B3030; }
+
+.pros-list li,
+.cons-list li {
+    list-style: none;
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.pros-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #3A7A3A;
+    font-weight: 700;
+}
+
+.cons-list li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: #8B3030;
+    font-weight: 700;
+}
+
+/* CTA buttons */
+.ranking-cta-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
+
+.cta-primary {
+    display: inline-block;
+    background-color: #802030;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(128, 32, 48, 0.3);
+}
+
+.cta-primary:hover {
+    background-color: #9A2840;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(128, 32, 48, 0.4);
+    color: #fff;
+}
+
+.cta-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: #802030;
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #802030;
+    transition: all 0.3s ease;
+}
+
+.cta-secondary:hover {
+    background-color: #802030;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Offer callout */
+.offer-callout {
+    background-color: #FDF0F2;
+    border: 1px solid #E8C8CC;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #5A2030;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Methodology box */
+.methodology-box {
+    background-color: #F5F0F2;
+    border-left: 4px solid #802030;
+    padding: 1.25rem 1.5rem;
+    margin: 1.75rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.methodology-box h3 {
+    font-size: 1.1rem;
+    color: #802030;
+    margin-bottom: 0.6rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.methodology-box p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    color: #5A5A5A;
+}
+
+/* Author credibility box */
+.author-credibility-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #FAF8F3;
+    border: 1px solid #E8D5D9;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.author-credibility-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #C9A8B8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.author-credibility-info {
+    flex: 1;
+}
+
+.author-credibility-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+}
+
+.author-credibility-title {
+    font-size: 0.85rem;
+    color: #8B8B8B;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Red flags box */
+.red-flags-box {
+    background-color: #FDF0F2;
+    border: 1px solid #E8C8CC;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.red-flags-box h3 {
+    color: #802030;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.red-flags-box ul {
+    padding-left: 1.25rem;
+    margin-bottom: 0;
+}
+
+.red-flags-box li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: #5A2030;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Our experience block */
+.our-experience {
+    background-color: #F5F0F2;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #5A5A5A;
+    border-left: 3px solid #C9A8B8;
+}
+
+/* Responsive: mobile */
+@media (max-width: 576px) {
+    .product-ranking-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-ranking-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .product-ranking-badges {
+        justify-content: center;
+    }
+
+    .pros-cons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rating-bar-label {
+        width: 100px;
+        font-size: 0.8rem;
+    }
+
+    .ranking-cta-group {
+        flex-direction: column;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        text-align: center;
+    }
+
+    .author-credibility-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .advertorial-content {
+        padding: 0 1rem;
+    }
+}
+
 /* Desktop: min-width 769px */
 @media (min-width: 769px) {
     .brand-selector {
