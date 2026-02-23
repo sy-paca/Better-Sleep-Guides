@@ -2094,12 +2094,10 @@ footer a:hover {
 }
 
 .product-ranking-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
     flex-shrink: 0;
-    background-color: #F5F0F2;
 }
 
 .product-ranking-meta {

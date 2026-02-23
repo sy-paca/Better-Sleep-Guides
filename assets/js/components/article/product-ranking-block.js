@@ -12,7 +12,6 @@
             rankLabel,
             imageSrc = '',
             imageAlt = '',
-            imageContain = false,
             name,
             nameSuffix = '',
             subtitle = '',
@@ -38,8 +37,7 @@
         }
 
         // Image
-        const imgStyle = imageContain ? ' style="object-fit:contain;padding:8px;"' : '';
-        const imageHTML = `<img src="${imageSrc}" alt="${imageAlt}" class="product-ranking-image"${imgStyle} onerror="this.style.background='#F0E8EC';this.removeAttribute('src')">`;
+        const imageHTML = `<img src="${imageSrc}" alt="${imageAlt}" class="product-ranking-image" onerror="this.style.display='none'">`;
 
         // Name + optional suffix
         const nameSuffixHTML = nameSuffix
