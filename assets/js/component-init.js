@@ -24,7 +24,8 @@
     // Check if article components are loaded
     function areArticleComponentsLoaded() {
         return typeof createFold !== 'undefined' &&
-               typeof createArticleFooter !== 'undefined';
+               typeof createArticleFooter !== 'undefined' &&
+               typeof createProductRankingBlock !== 'undefined';
     }
     
     // Check if product components are loaded
