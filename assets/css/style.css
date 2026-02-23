@@ -2402,19 +2402,45 @@ footer a:hover {
 
 /* Responsive: mobile */
 @media (max-width: 576px) {
+    .product-ranking-block {
+        padding: 1rem;
+    }
+
     .product-ranking-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.75rem;
+        text-align: left;
     }
 
     .product-ranking-image {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+    }
+
+    .product-ranking-meta h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .product-ranking-meta .small-text {
+        font-size: 0.75rem;
     }
 
     .product-ranking-badges {
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .grade-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .score-display {
+        font-size: 1.3rem;
     }
 
     .pros-cons-grid {
@@ -2422,8 +2448,8 @@ footer a:hover {
     }
 
     .rating-bar-label {
-        width: 100px;
-        font-size: 0.8rem;
+        width: 90px;
+        font-size: 0.78rem;
     }
 
     .ranking-cta-group {
@@ -2441,7 +2467,7 @@ footer a:hover {
     }
 
     .advertorial-content {
-        padding: 0 1rem;
+        padding: 0 0.75rem;
     }
 }
 
