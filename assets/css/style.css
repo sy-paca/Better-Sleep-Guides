@@ -989,6 +989,15 @@ div[id$="-ad"]:not(:empty) {
     animation: fadeInSmooth 0.6s ease-out;
 }
 
+/* Make article footer full width */
+#article-footer {
+    width: 100%;
+}
+
+#article-footer footer {
+    margin-top: 2rem;
+}
+
 div#article-fold.component-loaded,
 div#article-footer.component-loaded,
 div[id$="-showcase"].component-loaded,
