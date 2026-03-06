@@ -1704,6 +1704,14 @@ footer a:hover {
         width: 100% !important;
     }
 
+    .product-card-title {
+        font-size: 0.95rem !important;
+    }
+
+    .product-card-description {
+        font-size: 0.8rem !important;
+    }
+
     .content-large h2 {
         font-size: 1.4rem;
     }
@@ -1852,6 +1860,14 @@ footer a:hover {
     .product-card-btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
+    }
+
+    /* Smaller text for product block in mobile insert only */
+    .article-mobile-product-insert .product-card-title {
+        font-size: 0.8rem;
+    }
+    .article-mobile-product-insert .product-card-description {
+        font-size: 0.75rem;
     }
 
     .hero-section h1 {
