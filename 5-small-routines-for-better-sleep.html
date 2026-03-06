@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Five small routines before bed that help you sleep well. Simple, consistent habits to wind down and fall asleep faster—plus how Sleep BioClear⁺ fits in.">
+        content="Five small routines before bed that help you sleep well. Simple, consistent habits to wind down and fall asleep faster—plus how Wildtype's Deep Restore sleep tea fits in.">
     <meta name="keywords"
-        content="routines before bed, bedtime routine, fall asleep faster, sleep well, night routine, sleep tips, wind down, Sleep BioClear, better sleep">
+        content="routines before bed, bedtime routine, fall asleep faster, sleep well, night routine, sleep tips, wind down, Wildtype Deep Restore, better sleep">
     <title>5 Small Routines Before Bed That Help You Sleep Well | Better Sleep Guides</title>
 
     <!-- Open Graph / social share -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="5 Small Routines Before Bed That Help You Sleep Well | Better Sleep Guides">
-    <meta property="og:description" content="Five small routines before bed that help you sleep well. Simple, consistent habits to wind down and fall asleep faster—plus how Sleep BioClear⁺ fits in.">
+    <meta property="og:description" content="Five small routines before bed that help you sleep well. Simple, consistent habits to wind down and fall asleep faster—plus how Wildtype's Deep Restore sleep tea fits in.">
     <meta property="og:image" content="/assets/images/article-1-hero.jpg">
     <meta property="og:url" content="/5-small-routines-for-better-sleep.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="5 Small Routines Before Bed That Help You Sleep Well | Better Sleep Guides">
-    <meta name="twitter:description" content="Five small routines before bed that help you sleep well. Simple, consistent habits to wind down and fall asleep faster—plus how Sleep BioClear⁺ fits in.">
+    <meta name="twitter:description" content="Five small routines before bed that help you sleep well. Simple, consistent habits to wind down and fall asleep faster—plus how Wildtype's Deep Restore sleep tea fits in.">
     <meta name="twitter:image" content="/assets/images/article-1-hero.jpg">
 
     <!-- Head components (FOUC prevention, tracking init) -->
@@ -41,13 +41,12 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="article-scroll-left-only">
+<body>
     <!-- Navigation will be auto-inserted here -->
     <main>
         <article class="advertorial">
-            <section class="article-page-layout my-4">
-                <div class="article-main-content">
-                    <div class="w-70 mx-auto">
+            <div class="container my-4">
+                <div class="w-70 mx-auto">
                         <!-- Fold component (title + author + leading title + image) -->
                         <div id="article-fold"></div>
                         
@@ -84,11 +83,14 @@
                                 </div>
                             </div>
                             <div class="article-section">
-                                <h2>Use a magnesium sleep spray</h2>
-                                <p>Adding a sleep spray to your routine can help your body and your bedroom work in your favor. <a href="https://pacagen.com/en-us/products/dust-sleep-bio-clear" id="article-pacagen-product-trigger" class="sleep-bioclear-link" target="_blank" rel="noopener noreferrer">Sleep BioClear⁺</a> from Pacagen is a lavender and magnesium spray you use around your pillow or on your skin before bed—developed to support falling asleep faster, staying asleep, and waking refreshed, without melatonin. It also helps neutralize dust allergens in your sleep space so the air feels lighter. Same time each night, a few sprays as part of your wind-down: simple, repeatable, and built to fit into the rest of your routine.</p>
+                                <h2>Have a calming sleep tea</h2>
+                                <p>Adding a sleep tea to your routine can help signal your body it's time to wind down. <a href="https://drinkwildtype.com/products/deep-restore" id="article-wildtype-product-trigger" class="deep-restore-link" target="_blank" rel="noopener noreferrer">Wildtype's Deep Restore</a> is an apple chamomile tea powered by clinically-studied, melatonin-free ingredients—featuring an advanced magnesium blend, L-Theanine, and Ashwagandha to support deeper, more restful sleep. It helps calm nerves, reduce cortisol, and promote faster sleep onset without next-morning grogginess. Same time each night, one warm cup as part of your wind-down: simple, repeatable, and built to fit into the rest of your routine.</p>
                                 <div class="article-content-image article-routine-image">
-                                    <img src="assets/images/article/women-spray-bioclear.png" alt="Sleep BioClear magnesium sleep spray">
+                                    <img src="assets/images/article/women-holding-deep-restore.jpg" alt="Wildtype Deep Restore sleep tea">
                                 </div>
+
+                                <!-- Product Card -->
+                                <div id="deep-restore-showcase"></div>
                                 <div id="article-mobile-product-insert" class="article-mobile-product-insert"></div>
                             </div>
                             <div class="article-section">
@@ -102,15 +104,8 @@
                                 <p>These five small routines aren't about being perfect. They're about sending gentle, consistent signals that the day is ending. Over time, they can help you fall asleep faster and wake up feeling more refreshed.</p>
                             </div>
                         </div>
-                    </div>
                     <div id="article-footer"></div>
                 </div>
-                
-                <aside class="article-sidebar">
-                    <div id="sleep-bioclear-showcase"></div>
-                    <a href="https://pacagen.com/en-us/products/dust-sleep-bio-clear" class="shop-cta-btn" target="_blank" rel="noopener noreferrer">Shop Now</a>
-                </aside>
-            </section>
         </article>
     </main>
     
@@ -129,51 +124,23 @@
                 pageType: pageType
             });
 
-            // 2. Create product showcase (sidebar on desktop; mobile insert after magnesium spray section)
+            // 2. Create product showcase (inline card after content)
             var productShowcaseHtml = createProductShowcase({
-                image: 'product/bioclear-transparent-tilted.png',
-                alt: 'Sleep BioClear⁺ Magnesium Spray',
-                description: 'Expertly crafted to support deep, restorative sleep, clean bedroom air, and refreshing mornings with balanced energy.',
-                url: 'https://pacagen.com/en-us/products/dust-sleep-bio-clear',
+                image: 'product/DR-transparent-tilted.png',
+                alt: 'Wildtype Deep Restore Sleep Tea',
+                description: 'Apple chamomile tea with advanced magnesium blend, L-Theanine, and Ashwagandha to support deeper, more restful sleep without melatonin.',
+                url: 'https://drinkwildtype.com/products/deep-restore',
                 pageType: pageType
             });
-            var shopBtnHtml = '<a href="https://pacagen.com/en-us/products/dust-sleep-bio-clear" class="shop-cta-btn" target="_blank" rel="noopener noreferrer">Shop Now</a>';
-            document.getElementById('sleep-bioclear-showcase').innerHTML = productShowcaseHtml;
+            document.getElementById('deep-restore-showcase').innerHTML = productShowcaseHtml;
             var mobileInsert = document.getElementById('article-mobile-product-insert');
-            if (mobileInsert) mobileInsert.innerHTML = productShowcaseHtml + shopBtnHtml;
+            if (mobileInsert) mobileInsert.innerHTML = productShowcaseHtml;
 
             // 3. Create article footer
             document.getElementById('article-footer').innerHTML = createArticleFooter({
                 pageType: pageType
             });
         }, { waitForArticle: true, waitForProduct: true });
-
-        // Scroll-triggered sidebar visibility (left column scroll on desktop, window scroll on mobile)
-        function handleSidebarVisibility() {
-            const sidebar = document.querySelector('.article-sidebar');
-            if (!sidebar) return;
-            if (sidebar.classList.contains('visible')) return;
-
-            const isDesktopScrollLock = document.body.classList.contains('article-scroll-left-only') && window.matchMedia('(min-width: 1025px)').matches;
-            let scrollPercentage;
-
-            if (isDesktopScrollLock) {
-                const col = document.querySelector('.article-main-content');
-                if (!col) return;
-                const maxScroll = col.scrollHeight - col.clientHeight;
-                scrollPercentage = maxScroll <= 0 ? 100 : (col.scrollTop / maxScroll) * 100;
-            } else {
-                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                scrollPercentage = maxScroll <= 0 ? 100 : (window.scrollY / maxScroll) * 100;
-            }
-
-            if (scrollPercentage >= 30) sidebar.classList.add('visible');
-        }
-
-        const leftCol = document.querySelector('.article-main-content');
-        if (leftCol) leftCol.addEventListener('scroll', handleSidebarVisibility);
-        window.addEventListener('scroll', handleSidebarVisibility);
-        window.addEventListener('load', handleSidebarVisibility);
     </script>
 </body>
 

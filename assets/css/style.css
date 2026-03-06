@@ -25,6 +25,16 @@
    ============================================ */
 
 /* ============================================
+   FONT DECLARATIONS
+   ============================================ */
+@font-face {
+    font-family: 'All Round Gothic';
+    src: url('../font/AllRoundGothic-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ============================================
    RESET & BASE STYLES
    ============================================ */
 * {
@@ -83,6 +93,16 @@ article.advertorial {
    ============================================ */
 .w-70 {
     width: 70%;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-4 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* Article Page Layout with Sidebar */
@@ -1104,6 +1124,81 @@ div[id$="-ad"].component-loaded {
 /* ============================================
    PRODUCT CARDS
    ============================================ */
+.product-card-inline {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../images/product/product-display-bg.jpg') center/cover;
+    border: 3px solid #8B6FA3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 2rem 0;
+}
+
+.product-card-image {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    width: 280px;
+}
+
+.product-card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card-title {
+    grid-column: 2;
+    grid-row: 1;
+    font-family: 'All Round Gothic', sans-serif !important;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #222;
+}
+
+.product-card-content {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.product-card-reviews {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #666;
+}
+
+.product-card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #5A5A5A;
+}
+
+.product-card-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #8B6FA3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    width: fit-content;
+    margin-top: 0.5rem;
+}
+
+.product-card-btn:hover {
+    background: #7B5D99;
+    color: #fff;
+}
+
 .card .card-title {
     font-size: 1.4rem;
     font-weight: 600;
@@ -1674,15 +1769,15 @@ footer a:hover {
     nav {
         padding: 0.5rem 1rem;
     }
-    
+
     #logo {
         height: 80px;
     }
-    
+
     .brand-text {
         font-size: 1.2rem;
     }
-    
+
     .nav-brand {
         gap: 0.75rem;
     }
@@ -1693,6 +1788,48 @@ footer a:hover {
 
     main {
         padding: 1rem;
+    }
+
+    /* Product card responsive */
+    .product-card-inline {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .product-card-image {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100px;
+    }
+
+    .product-card-content {
+        grid-column: 1 / -1;
+        grid-row: 2 / -1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+    }
+
+    .product-card-title {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 1.2rem;
+        align-self: center;
+        margin: 0;
+    }
+
+    .product-card-description {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .product-card-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 
     .hero-section h1 {

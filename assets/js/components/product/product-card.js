@@ -15,25 +15,22 @@
             reviewText = '',
             clickable = true
         } = config;
-        
+
         if (!imagePath || !alt) return '';
-        
+
         if (clickable && url) {
             return `
-                <a href="${url}" class="pacagen-link d-flex w-md-65 justify-content-center align-items-center text-decoration-none">
-                    <div class="card p-2">
-                        <div class="row mx-auto">
-                            <div class="col-5 col-sm-4 col-md-3 p-0 px-md-2">
-                                <img src="${imagePath}" class="rounded-4" alt="${alt}">
-                            </div>
-                            <div class="col-7 col-sm-8 col-md-9">
-                                <h2 class="card-title"><b>${alt}</b></h2>
-                                ${reviewText ? `<p class="card-reviews mb-1">${reviewText}</p>` : ''}
-                                <p class="card-description mb-0">${description || ''}</p>
-                            </div>
-                        </div>
+                <div class="product-card-inline">
+                    <div class="product-card-image">
+                        <img src="${imagePath}" alt="${alt}">
                     </div>
-                </a>
+                    <h3 class="product-card-title">${alt}</h3>
+                    <div class="product-card-content">
+                        ${reviewText ? `<p class="product-card-reviews">${reviewText}</p>` : ''}
+                        ${description ? `<p class="product-card-description">${description}</p>` : ''}
+                        <a href="${url}" class="product-card-btn" target="_blank" rel="noopener noreferrer">Shop Now</a>
+                    </div>
+                </div>
             `;
         } else {
             return `
