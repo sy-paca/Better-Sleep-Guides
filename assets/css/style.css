@@ -1199,6 +1199,19 @@ div[id$="-ad"].component-loaded {
     color: #fff;
 }
 
+/* Deep Restore product links in article text */
+.deep-restore-link {
+    color: #8B6FA3;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #8B6FA3;
+}
+
+.deep-restore-link:hover {
+    color: #7B5D99;
+    border-bottom-color: #7B5D99;
+}
+
 .card .card-title {
     font-size: 1.4rem;
     font-weight: 600;
