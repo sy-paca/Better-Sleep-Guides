@@ -100,7 +100,6 @@
                                 <div class="article-content-image article-routine-image">
                                     <img src="assets/images/article/improved-environment.jpg" alt="Optimized sleep environment">
                                 </div>
-                                <div id="article-mobile-product-insert" class="article-mobile-product-insert"></div>
                             </div>
                             <div class="article-section">
                                 <p>Getting 7–8 hours in bed isn't enough if your sleep isn't restorative. By supporting deeper sleep, calming your nervous system, stabilizing energy overnight, syncing your circadian rhythm, and optimizing your sleep environment, you can finally wake up feeling restored — clear-headed, energized, and ready for the day.</p>
@@ -135,8 +134,6 @@
                 pageType: pageType
             });
             document.getElementById('deep-restore-showcase').innerHTML = productShowcaseHtml;
-            var mobileInsert = document.getElementById('article-mobile-product-insert');
-            if (mobileInsert) mobileInsert.innerHTML = productShowcaseHtml;
 
             // 3. Create article footer
             document.getElementById('article-footer').innerHTML = createArticleFooter({
