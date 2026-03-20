@@ -81,7 +81,7 @@ main {
     overflow-x: hidden;
 }
 
-article.advertorial {
+article.content {
     min-height: 700px;
     max-width: 100%;
     margin: 0 auto;
@@ -2191,11 +2191,11 @@ footer a:hover {
 }
 
 /* ============================================
-   ADVERTORIAL RANKING PAGE
+   PRODUCT RANKING / REVIEW PAGE
    ============================================ */
 
 /* Centered content wrapper */
-.advertorial-content {
+.content-wrap {
     max-width: 860px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -2639,7 +2639,7 @@ footer a:hover {
         text-align: center;
     }
 
-    .advertorial-content {
+    .content-wrap {
         padding: 0 0.75rem;
     }
 }

@@ -16,7 +16,6 @@ Disallow: /assets/js/
 Disallow: /assets/css/
 
 # Allow important pages
-Allow: /advertorial*.html
 Allow: /5-ways-to-manage-allergens.html
 Allow: /5-must-have-products.html
 Allow: /love-your-cat-lose-the-allergies.html

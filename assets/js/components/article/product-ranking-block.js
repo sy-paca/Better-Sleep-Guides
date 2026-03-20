@@ -1,5 +1,5 @@
 // Product Ranking Block Component
-// Creates a full product ranking card for review/advertorial articles
+// Creates a full product ranking card for review-style articles
 // Usage: createProductRankingBlock({ rankBadgeClass, rankLabel, imageSrc, imageAlt, imageContain, name, nameSuffix, subtitle, gradeClass, grade, score, body, ratings, pros, cons, experience, callout, ctaPrimaryText, ctaPrimaryUrl, ctaPrimaryExternal, ctaSecondaryText, ctaSecondaryUrl })
 // All fields optional except name, rankLabel, rankBadgeClass
 
