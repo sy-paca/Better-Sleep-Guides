@@ -37,6 +37,8 @@
     <!-- Component bundles -->
     <script src="assets/js/components/article/fold.js"></script>
     <script src="assets/js/components/article/article-footer.js"></script>
+    <script src="assets/js/components/ads/ad.js"></script>
+    <script src="assets/js/components/article/related-stories.js"></script>
     
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -89,10 +91,11 @@
                         <p>Your morning routine and your night routine work together. When you start your day with healthy habits, you set yourself up for better sleep when evening comes. Small morning changes can lead to significant improvements in your sleep quality.</p>
                     </div>
                 </div>
+                <div id="article-related" class="article-related-mount"></div>
             </section>
         </article>
     </main>
-    
+
     <!-- Article footer component -->
     <div id="article-footer"></div>
     
@@ -112,6 +115,19 @@
                 pageType: pageType
             });
             
+            if (typeof injectArticleDesktopRailAd === 'function') {
+                injectArticleDesktopRailAd(pageType);
+            }
+
+            if (typeof injectRandomArticleBanners === 'function') {
+                injectRandomArticleBanners(pageType);
+            }
+
+            var relatedMount = document.getElementById('article-related');
+            if (relatedMount && typeof createRelatedStories === 'function') {
+                relatedMount.innerHTML = createRelatedStories({ pageType: pageType, excludeId: 'morning-routine-better-sleep.html' });
+            }
+
             // 2. Create article footer
             document.getElementById('article-footer').innerHTML = createArticleFooter({
                 pageType: pageType

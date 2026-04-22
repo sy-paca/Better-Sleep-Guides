@@ -37,6 +37,8 @@
     <!-- Component bundles -->
     <script src="assets/js/components/article/fold.js"></script>
     <script src="assets/js/components/article/article-footer.js"></script>
+    <script src="assets/js/components/ads/ad.js"></script>
+    <script src="assets/js/components/article/related-stories.js"></script>
     <script src="assets/js/product-components-bundle.js"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -105,7 +107,9 @@
                                 <p>Getting 7–8 hours in bed isn't enough if your sleep isn't restorative. By supporting deeper sleep, calming your nervous system, stabilizing energy overnight, syncing your circadian rhythm, and optimizing your sleep environment, you can finally wake up feeling restored — clear-headed, energized, and ready for the day.</p>
                             </div>
                         </div>
+                    <div id="article-related" class="article-related-mount"></div>
                 </div>
+            </div>
         </article>
     </main>
     <div id="article-footer"></div>
@@ -137,6 +141,19 @@
                 pageType: pageType
             });
             document.getElementById('deep-restore-showcase').innerHTML = productShowcaseHtml;
+
+            if (typeof injectArticleDesktopRailAd === 'function') {
+                injectArticleDesktopRailAd(pageType);
+            }
+
+            if (typeof injectRandomArticleBanners === 'function') {
+                injectRandomArticleBanners(pageType);
+            }
+
+            var relatedMount = document.getElementById('article-related');
+            if (relatedMount && typeof createRelatedStories === 'function') {
+                relatedMount.innerHTML = createRelatedStories({ pageType: pageType, excludeId: 'stop-wasting-your-sleep.html' });
+            }
 
             // 3. Create article footer
             document.getElementById('article-footer').innerHTML = createArticleFooter({

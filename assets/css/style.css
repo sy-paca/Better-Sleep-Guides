@@ -233,6 +233,151 @@ article.content {
     display: block;
 }
 
+/* Desktop right rail — Summer Fridays vertical (injectArticleDesktopRailAd) */
+.article-desktop-rail-ad {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+    /*
+     * Avoid overflow-x: hidden on ancestors turning into a scrollport that kills
+     * position:sticky for the rail. Class is set in injectArticleDesktopRailAd.
+     */
+    article.content.article--with-desktop-rail {
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    main.main--with-desktop-rail {
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    .article-page-layout.article-page-layout--with-rail {
+        grid-template-columns: minmax(0, 1fr) minmax(210px, 280px);
+        gap: clamp(1.5rem, 3vw, 2.75rem);
+        /* start (not stretch) + sticky on the rail *column* keeps the label + image one unit, like a sidebar ad */
+        align-items: start;
+        padding-bottom: clamp(2.5rem, 6vh, 4rem);
+    }
+
+    .article-page-layout.article-page-layout--with-rail .article-main-content {
+        min-width: 0;
+    }
+
+    /* Before 50%: same two-column width as after; ad is invisible but still holds space (see ad.js) */
+    .article-page-layout.article-page-layout--with-rail.article-page-layout--rail-pending .article-desktop-rail-ad {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Sticky on the column, not the aside — avoids eyebrow and image scrolling out of sync.
+       top: clear masthead (progress + logo + category bar); margins: gap from main column + footer */
+    .article-desktop-rail-column {
+        position: -webkit-sticky;
+        position: sticky;
+        top: clamp(8.75rem, 15vh, 12.5rem);
+        margin-top: clamp(3.25rem, 6.5vh, 5.25rem);
+        margin-bottom: clamp(2.5rem, 5.5vh, 3.75rem);
+        min-width: 0;
+        width: 100%;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: 0;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    .article-desktop-rail-ad {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 0;
+        box-sizing: border-box;
+        padding-top: 0;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .article-desktop-rail-ad-eyebrow {
+        margin: 0.25rem 0 0.5rem;
+        padding-top: 0.2rem;
+        text-align: center;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8a8580;
+    }
+
+    .article-desktop-rail-ad-hit {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .article-desktop-rail-ad-media {
+        position: relative;
+        display: block;
+        background: #fff;
+    }
+
+    /* Bottom vignette so white ghost CTA reads on light or busy product art */
+    .article-desktop-rail-ad-media::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 48%;
+        pointer-events: none;
+        z-index: 1;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.55) 0%,
+            rgba(0, 0, 0, 0.2) 55%,
+            transparent 100%
+        );
+    }
+
+    .article-desktop-rail-ad-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 0;
+    }
+
+    /* Ghost CTA: white hairline frame, caps, centered on bottom of image */
+    .article-desktop-rail-ad-cta {
+        position: absolute;
+        left: 50%;
+        bottom: clamp(0.75rem, 5%, 1.35rem);
+        transform: translateX(-50%);
+        z-index: 2;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0.7rem 1.5rem;
+        min-width: 8.5rem;
+        text-align: center;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        font-size: clamp(0.65rem, 0.85vw, 0.78rem);
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        line-height: 1.2;
+        color: #fff;
+        background: transparent;
+        border: 1px solid #fff;
+        border-radius: 0;
+        pointer-events: none;
+        box-shadow: none;
+    }
+}
+
 /* Pacagen Sleep BioClear⁺ spray bottle color (burgundy/maroon) */
 .shop-cta-btn {
     width: 100%;
@@ -1418,6 +1563,120 @@ section h3 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Related stories (end of article) — lives inside article column; full width of that column */
+.article-related-mount {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    box-sizing: border-box;
+}
+
+.article-related {
+    border: 1px solid rgba(224, 216, 184, 0.75);
+    background: rgba(253, 246, 228, 0.72);
+    padding-top: clamp(1.25rem, 3vw, 2rem);
+    padding-right: clamp(1rem, 3vw, 1.75rem);
+    padding-bottom: clamp(1.75rem, 4.5vw, 2.75rem);
+    padding-left: clamp(1rem, 3vw, 1.75rem);
+    box-sizing: border-box;
+}
+
+.article-related-heading {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.65rem, 2vw, 1.25rem);
+    margin: 0 0 1.25rem;
+}
+
+.article-related-heading-line {
+    flex: 1;
+    min-width: 1.5rem;
+    height: 1px;
+    background: #9a9690;
+}
+
+.article-related-title {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+    font-size: clamp(0.88rem, 1.35vw, 1.05rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #222;
+    text-align: center;
+}
+
+.article-related-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.article-related-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: #111;
+    border-bottom: 1px solid #e5e2dc;
+    transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.article-related-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0.35rem;
+}
+
+.article-related-row:hover {
+    opacity: 0.88;
+}
+
+.article-related-row-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: #111;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+}
+
+.article-related-row-thumb {
+    flex-shrink: 0;
+    width: clamp(140px, 28vw, 220px);
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #eceae6;
+}
+
+.article-related-row-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 540px) {
+    .article-related-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article-related-row-thumb {
+        width: 100%;
+        max-width: min(100%, 280px);
+        align-self: flex-end;
+    }
+}
+
 /* Category Filters */
 .category-filters {
     display: flex;
@@ -1792,6 +2051,142 @@ div[id$="-ad"].component-loaded {
 
 .ad.ad-clickable:hover {
     opacity: 0.95;
+}
+
+/* Full-width article banners (createArticleBannerAd / injectRandomArticleBanners) */
+.article-banner-ad {
+    width: 100%;
+    max-width: 100%;
+    margin: 2.25rem 0;
+    box-sizing: border-box;
+}
+
+.article-banner-ad-eyebrow {
+    margin: 0 0 0.5rem;
+    text-align: center;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a8580;
+}
+
+.article-banner-ad-shell {
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    background: #1a1a1a;
+}
+
+.article-banner-ad-image {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    max-height: min(52vh, 420px);
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.article-banner-ad-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: clamp(1rem, 4vw, 2.75rem);
+    padding-bottom: clamp(2rem, 5vw, 3.25rem);
+    box-sizing: border-box;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.72) 0%,
+        rgba(0, 0, 0, 0.35) 48%,
+        rgba(0, 0, 0, 0.08) 100%
+    );
+    pointer-events: none;
+}
+
+.article-banner-ad-overlay .article-banner-ad-cta {
+    pointer-events: auto;
+}
+
+.article-banner-ad-kicker {
+    margin: 0 0 0.35rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(0.65rem, 1.4vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Headline is h3 — override global section h3 / .content-large h3 (dark color + border) */
+.article-banner-ad h3.article-banner-ad-headline {
+    margin: 0 0 1rem;
+    padding-bottom: 0;
+    max-width: min(22em, 92%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(1.15rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #fff;
+    border-bottom: none;
+}
+
+.article-banner-ad-cta {
+    display: inline-block;
+    margin: 0;
+    padding: 0.55rem 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(0.7rem, 1.5vw, 0.82rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: transparent;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.article-banner-ad-cta:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.article-banner-ad-cta--static {
+    cursor: default;
+}
+
+/* Vertical display units (createVerticalDisplayAd — optional narrow use) */
+.ad-section.ad-vertical {
+    padding: 0;
+    margin: 0;
+    max-width: min(100%, 300px);
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ad-section.ad-vertical .ad-label {
+    bottom: 6px;
+    right: 6px;
+}
+
+.ad-vertical-link,
+.ad-vertical-media {
+    display: block;
+    line-height: 0;
+}
+
+.ad-vertical-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .ad::before {

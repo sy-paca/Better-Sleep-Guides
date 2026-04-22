@@ -37,6 +37,8 @@
     <!-- Component bundles -->
     <script src="assets/js/components/article/fold.js"></script>
     <script src="assets/js/components/article/article-footer.js"></script>
+    <script src="assets/js/components/ads/ad.js"></script>
+    <script src="assets/js/components/article/related-stories.js"></script>
     <script src="assets/js/components/article/product-ranking-block.js"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -122,6 +124,7 @@
                     </div>
 
                 </div><!-- end article-content -->
+                <div id="article-related" class="article-related-mount"></div>
             </div><!-- end content-wrap -->
         </article>
     </main>
@@ -341,6 +344,19 @@
 
             document.getElementById('product-ranking-blocks').innerHTML =
                 products.map(p => createProductRankingBlock(p)).join('');
+
+            if (typeof injectArticleDesktopRailAd === 'function') {
+                injectArticleDesktopRailAd(pageType);
+            }
+
+            if (typeof injectRandomArticleBanners === 'function') {
+                injectRandomArticleBanners(pageType);
+            }
+
+            var relatedMount = document.getElementById('article-related');
+            if (relatedMount && typeof createRelatedStories === 'function') {
+                relatedMount.innerHTML = createRelatedStories({ pageType: pageType, excludeId: 'we-tested-sleep-aids.html' });
+            }
 
             document.getElementById('article-footer').innerHTML = createArticleFooter({
                 pageType: pageType
