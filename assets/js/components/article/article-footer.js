@@ -7,24 +7,15 @@
     
     function createArticleFooter(config = {}) {
         const { pageType = 'root' } = config;
-        const privacyPath = pageType === 'blog' ? '../privacy-policy.html' : 'privacy-policy.html';
-        const termsPath = pageType === 'blog' ? '../terms-of-service.html' : 'terms-of-service.html';
-        
-        return `
-            <footer>
-                <div class="container footer-text">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <p>&copy; 2026 Better Sleep Guides. All rights reserved.</p>
-                            <p>
-                                <a href="${privacyPath}">Privacy Policy</a> | 
-                                <a href="${termsPath}">Terms of Service</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        `;
+        if (typeof buildSiteFooterHTML === 'function') {
+            return buildSiteFooterHTML(pageType);
+        }
+        const p = pageType === 'blog' ? '../' : '';
+        return (
+            '<footer class="site-footer site-footer--fallback" role="contentinfo">' +
+            '<div class="site-footer-inner"><p class="site-footer-copy">&copy; 2026 Better Sleep Guides.</p>' +
+            '<p><a href="' + p + 'privacy-policy.html">Privacy Policy</a> · <a href="' + p + 'terms-of-service.html">Terms of Service</a></p></div></footer>'
+        );
     }
     
     window.createArticleFooter = createArticleFooter;

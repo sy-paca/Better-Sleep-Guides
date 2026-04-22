@@ -30,6 +30,7 @@
     <!-- Component initialization helper (must load before bundles) -->
     <script src="assets/js/component-init.js"></script>
     
+    <script src="assets/js/site-footer.js"></script>
     <!-- Main JavaScript (navigation, footer) -->
     <script src="assets/js/main.js" defer></script>
     
@@ -53,7 +54,6 @@
                         <div class="article-header">
                             <span class="article-category-header category-routine">ROUTINE</span>
                             <div class="article-separator category-routine"></div>
-                            <div class="article-byline">BY BETTER SLEEP GUIDES</div>
                             <div class="article-date">February 3, 2026</div>
                         </div>
                         
@@ -116,8 +116,9 @@
             // 1. Create fold component (title + author + image)
             document.getElementById('article-fold').innerHTML = createFold({
                 title: '5 Small Routines Before Bed That Help You Sleep Well',
-                authorName: '',
-                authorImage: '',
+                authorName: 'Liz Brennan',
+                authorImage: 'editor-liz.jpg',
+                authorImageAlt: 'Portrait of Liz Brennan',
                 imageSrc: 'article-1-hero.jpg',
                 imageAlt: 'Night routine for better sleep',
                 imageCaption: '',
@@ -126,10 +127,12 @@
 
             // 2. Create product showcase (inline card after content)
             var productShowcaseHtml = createProductShowcase({
-                image: 'product/DR-transparent-tilted.png',
+                image: 'product/DR-product.jpg',
                 alt: 'Wildtype Deep Restore Sleep Tea',
+                headline: 'Wildtype Deep Restore',
                 description: 'Apple chamomile tea with advanced magnesium blend, L-Theanine, and Ashwagandha to support deeper, more restful sleep without melatonin.',
                 url: 'https://drinkwildtype.com/products/deep-restore',
+                ctaText: 'Learn more',
                 pageType: pageType
             });
             document.getElementById('deep-restore-showcase').innerHTML = productShowcaseHtml;

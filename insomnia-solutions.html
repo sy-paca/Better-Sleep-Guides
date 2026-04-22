@@ -30,6 +30,7 @@
     <!-- Component initialization helper (must load before bundles) -->
     <script src="assets/js/component-init.js"></script>
     
+    <script src="assets/js/site-footer.js"></script>
     <!-- Main JavaScript (navigation, footer) -->
     <script src="assets/js/main.js" defer></script>
     
@@ -51,7 +52,6 @@
                 <div class="article-header">
                     <span class="article-category-header category-wellness">WELLNESS</span>
                     <div class="article-separator category-wellness"></div>
-                    <div class="article-byline">BY BETTER SLEEP GUIDES</div>
                     <div class="article-date">February 3, 2026</div>
                 </div>
                 
@@ -103,8 +103,9 @@
             // 1. Create fold component (title + author + image)
             document.getElementById('article-fold').innerHTML = createFold({
                 title: 'Natural Insomnia Solutions That Actually Work',
-                authorName: '',
-                authorImage: '',
+                authorName: 'Helena Voss',
+                authorImage: 'editor-helena.jpg',
+                authorImageAlt: 'Portrait of Helena Voss',
                 imageSrc: 'article-4-hero.jpg',
                 imageAlt: 'Insomnia solutions',
                 imageCaption: '',

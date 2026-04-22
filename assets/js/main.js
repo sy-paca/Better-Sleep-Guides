@@ -94,15 +94,59 @@ function insertNavigation(pageType = 'root', currentPage = '') {
     // Determine the correct paths based on page type
     const homePath = pageType === 'blog' ? '../index.html' : 'index.html';
     const logoPath = pageType === 'blog' ? '../assets/images/logo/bsg-logo.png' : 'assets/images/logo/bsg-logo.png';
-    const blogPath = pageType === 'blog' ? 'index.html' : 'blog/index.html';
     
     // Check if we're on an article page (has article-fold element)
     const isArticlePage = document.getElementById('article-fold') !== null;
     
     // Create navigation HTML - show brand text only on non-article pages
     const brandTextHTML = isArticlePage ? '' : '<span class="brand-text">Better Sleep Guides</span>';
-    
-    const navigationHTML = `
+    const isHomePage = document.body.classList.contains('page-home');
+    const isBlogsListing = document.body.classList.contains('page-blogs');
+    const blogsListPath = pageType === 'blog' ? 'index.html' : 'blogs.html';
+    const hashLatest = pageType === 'blog' ? '../index.html#the-latest' : 'index.html#the-latest';
+    const hashTrending = pageType === 'blog' ? '../index.html#trending-now' : 'index.html#trending-now';
+    const hashRoutine = pageType === 'blog' ? '../index.html#category-routine' : 'index.html#category-routine';
+    const hashWellness = pageType === 'blog' ? '../index.html#category-wellness' : 'index.html#category-wellness';
+    const hashProduct = pageType === 'blog' ? '../index.html#category-product' : 'index.html#category-product';
+    const hashReview = pageType === 'blog' ? '../index.html#category-testing' : 'index.html#category-testing';
+
+    const mastheadSearchIcon = `<svg class="header-masthead-search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>`;
+
+    const mastheadScrollProgressHTML = isHomePage
+        ? ''
+        : `
+            <div class="header-scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="header-scroll-progress-fill"></div>
+            </div>`;
+
+    let navigationHTML;
+    if (isHomePage || isArticlePage || isBlogsListing) {
+        navigationHTML = `
+        <header class="header-home header-masthead">
+            <div class="header-masthead-inner">
+                <div class="header-masthead-top">
+                    <a href="${homePath}" class="header-masthead-brand">
+                        <img src="${logoPath}" alt="Better Sleep Guides" width="120" height="120" id="logo" class="header-masthead-logo">
+                        <span class="header-masthead-wordmark">Better Sleep Guides</span>
+                    </a>
+                    <p class="header-masthead-tagline">Rest, routine, and mornings that actually feel clear.</p>
+                </div>
+                <div class="header-masthead-bar">
+                    <nav class="header-masthead-cats" aria-label="Primary">
+                        <a href="${hashRoutine}">Routine</a>
+                        <a href="${hashWellness}">Wellness</a>
+                        <a href="${hashProduct}">Product</a>
+                        <a href="${hashReview}">Review</a>
+                        <a href="${hashLatest}">The Latest</a>
+                        <a href="${hashTrending}">Trending</a>
+                        <a href="${blogsListPath}">All Stories</a>
+                    </nav>
+                    <a href="${blogsListPath}" class="header-masthead-search" aria-label="Browse all articles">${mastheadSearchIcon}</a>
+                </div>
+            </div>${mastheadScrollProgressHTML}
+        </header>`;
+    } else {
+        navigationHTML = `
         <header>
             <nav>
                 <a href="${homePath}" class="nav-brand">
@@ -110,8 +154,11 @@ function insertNavigation(pageType = 'root', currentPage = '') {
                     ${brandTextHTML}
                 </a>
             </nav>
-        </header>
-    `;
+            <div class="header-scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="header-scroll-progress-fill"></div>
+            </div>
+        </header>`;
+    }
     
     // Insert navigation at the beginning of body
     document.body.insertAdjacentHTML('afterbegin', navigationHTML);
@@ -119,28 +166,14 @@ function insertNavigation(pageType = 'root', currentPage = '') {
 
 // Footer Component - Insert footer HTML
 function insertFooter(pageType = 'root') {
-    // Determine the correct paths based on page type
-    const privacyPath = pageType === 'blog' ? '../privacy-policy.html' : 'privacy-policy.html';
-    const termsPath = pageType === 'blog' ? '../terms-of-service.html' : 'terms-of-service.html';
-    
-    // Create footer HTML
-    const footerHTML = `
-        <footer>
-            <div class="container footer-text">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>&copy; 2026 Better Sleep Guides. All rights reserved.</p>
-                        <p>
-                            <a href="${privacyPath}">Privacy Policy</a> | 
-                            <a href="${termsPath}">Terms of Service</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    `;
-    
-    // Insert footer at the end of body
+    const p = pageType === 'blog' ? '../' : '';
+    const privacyPath = p + 'privacy-policy.html';
+    const termsPath = p + 'terms-of-service.html';
+    const footerHTML =
+        typeof buildSiteFooterHTML === 'function'
+            ? buildSiteFooterHTML(pageType)
+            : `<footer class="site-footer site-footer--fallback" role="contentinfo"><div class="site-footer-inner"><p class="site-footer-copy">&copy; 2026 Better Sleep Guides.</p><p><a href="${privacyPath}">Privacy Policy</a> · <a href="${termsPath}">Terms of Service</a></p></div></footer>`;
+
     document.body.insertAdjacentHTML('beforeend', footerHTML);
 }
 
@@ -164,7 +197,9 @@ function insertFooter(pageType = 'root') {
     // Insert navigation and footer when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
-            if (!document.querySelector('nav')) {
+            /* Use .header-masthead — not `nav` — or site-footer's <nav> blocks the masthead on articles
+               whose init runs before this listener (e.g. no waitForProduct). */
+            if (!document.querySelector('.header-masthead')) {
                 insertNavigation(pageType, currentPage);
             }
             // Only insert main footer if there's no article-footer element (article pages handle their own footer)
@@ -174,7 +209,7 @@ function insertFooter(pageType = 'root') {
         });
     } else {
         // DOM already loaded
-        if (!document.querySelector('nav')) {
+        if (!document.querySelector('.header-masthead')) {
             insertNavigation(pageType, currentPage);
         }
         // Only insert main footer if there's no article-footer element (article pages handle their own footer)
@@ -184,9 +219,37 @@ function insertFooter(pageType = 'root') {
     }
 })();
 
+function initHeaderScrollProgress() {
+    var header = document.querySelector('body > header');
+    var fill = header && header.querySelector('.header-scroll-progress-fill');
+    if (!header || !fill) return;
+
+    function updateProgress() {
+        var docEl = document.documentElement;
+        var scrollable = docEl.scrollHeight - docEl.clientHeight;
+        var pct = 0;
+        if (scrollable > 0) {
+            pct = Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100));
+        }
+        fill.style.width = pct + '%';
+        var bar = header.querySelector('.header-scroll-progress');
+        if (bar) {
+            bar.setAttribute('aria-valuenow', String(Math.round(pct)));
+        }
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateProgress).catch(updateProgress);
+    }
+    updateProgress();
+}
+
 // Wait for DOM to be fully loaded for additional functionality
 document.addEventListener('DOMContentLoaded', function() {
-    
+    initHeaderScrollProgress();
+
     // Smooth scrolling for internal links
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {

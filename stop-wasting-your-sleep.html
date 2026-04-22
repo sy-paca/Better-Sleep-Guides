@@ -14,12 +14,12 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Stop Wasting Your Sleep: 5 Secrets to Truly Feeling Rested">
     <meta property="og:description" content="You sleep 7-8 hours but wake up exhausted? It's not about how long you sleep—it's about sleep quality. Discover 5 secrets to truly restorative sleep and waking up refreshed.">
-    <meta property="og:image" content="/assets/images/article-1-hero.jpg">
+    <meta property="og:image" content="/assets/images/header-main-image.png">
     <meta property="og:url" content="/stop-wasting-your-sleep.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Stop Wasting Your Sleep: 5 Secrets to Truly Feeling Rested">
     <meta name="twitter:description" content="You sleep 7-8 hours but wake up exhausted? It's not about how long you sleep—it's about sleep quality. Discover 5 secrets to truly restorative sleep and waking up refreshed.">
-    <meta name="twitter:image" content="/assets/images/article-1-hero.jpg">
+    <meta name="twitter:image" content="/assets/images/header-main-image.png">
 
     <!-- Head components (FOUC prevention, tracking init) -->
     <script src="assets/js/head-components.js"></script>
@@ -30,6 +30,7 @@
     <!-- Component initialization helper (must load before bundles) -->
     <script src="assets/js/component-init.js"></script>
 
+    <script src="assets/js/site-footer.js"></script>
     <!-- Main JavaScript (navigation, footer) -->
     <script src="assets/js/main.js" defer></script>
 
@@ -53,7 +54,6 @@
                         <div class="article-header">
                             <span class="article-category-header category-routine">SLEEP QUALITY</span>
                             <div class="article-separator category-routine"></div>
-                            <div class="article-byline">BY BETTER SLEEP GUIDES</div>
                             <div class="article-date">March 6, 2026</div>
                         </div>
 
@@ -117,20 +117,23 @@
             // 1. Create fold component (title + author + image)
             document.getElementById('article-fold').innerHTML = createFold({
                 title: 'Stop Wasting Your Sleep: 5 Secrets to Truly Feeling Rested',
-                authorName: '',
-                authorImage: '',
-                imageSrc: 'article-6-hero.jpg',
-                imageAlt: 'Restorative sleep and waking up refreshed',
+                authorName: 'Maria Delgado',
+                authorImage: 'editor-maria.jpg',
+                authorImageAlt: 'Portrait of Maria Delgado',
+                imageSrc: 'header-main-image.png',
+                imageAlt: 'Woman in pale yellow pajamas holding a ruffled lavender pillow over her head',
                 imageCaption: '',
                 pageType: pageType
             });
 
             // 2. Create product showcase (inline card after content)
             var productShowcaseHtml = createProductShowcase({
-                image: 'product/DR-transparent-tilted.png',
+                image: 'product/DR-product.jpg',
                 alt: 'Wildtype Deep Restore Sleep Tea',
+                headline: 'Wildtype Deep Restore',
                 description: 'Apple chamomile tea with advanced magnesium blend, L-Theanine, and Ashwagandha to support deeper, more restful sleep without melatonin.',
                 url: 'https://drinkwildtype.com/products/deep-restore',
+                ctaText: 'Learn more',
                 pageType: pageType
             });
             document.getElementById('deep-restore-showcase').innerHTML = productShowcaseHtml;

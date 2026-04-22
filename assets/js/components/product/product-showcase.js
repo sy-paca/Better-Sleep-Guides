@@ -1,6 +1,6 @@
 // Product Showcase Component (Main)
 // High-level function that combines product card with reviews
-// Usage: createProductShowcase({ image: 'img.png', alt: 'Product', url: '...', pageType: 'root' })
+// Usage: createProductShowcase({ image, alt, url, description?, eyebrow?, headline?, ctaText?, pageType? })
 // Dependencies: product-reviews.js, product-card.js
 
 (function() {
@@ -19,6 +19,9 @@
             alt,
             url,
             description,
+            eyebrow,
+            headline,
+            ctaText,
             clickable = true,
             pageType = 'root'
         } = config;
@@ -48,7 +51,10 @@
             url,
             description,
             reviewText,
-            clickable
+            clickable,
+            eyebrow,
+            headline,
+            ctaText
         });
     }
     

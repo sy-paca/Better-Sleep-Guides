@@ -30,6 +30,7 @@
     <!-- Component initialization helper (must load before bundles) -->
     <script src="assets/js/component-init.js"></script>
     
+    <script src="assets/js/site-footer.js"></script>
     <!-- Main JavaScript (navigation, footer) -->
     <script src="assets/js/main.js" defer></script>
     
@@ -67,7 +68,6 @@
                         <div class="article-header">
                             <span class="article-category-header category-routine">SLEEP QUALITY</span>
                             <div class="article-separator category-routine"></div>
-                            <div class="article-byline">BY SARAH MITCHELL</div>
                             <div class="article-date">March 13, 2026</div>
                         </div>
                         
@@ -103,8 +103,9 @@
             // 1. Create fold component (title + author + image)
             document.getElementById('article-fold').innerHTML = createFold({
                 title: 'Millions Fall Asleep Easily — But Wake Up 5–10 Times a Night Without Realizing It. A New Sleep Solution Is Going Viral.',
-                authorName: '',
-                authorImage: '',
+                authorName: 'Helena Voss',
+                authorImage: 'editor-helena.jpg',
+                authorImageAlt: 'Portrait of Helena Voss',
                 imageSrc: 'wake-up-hero-1.jpg',
                 imageAlt: 'Waking up multiple times a night fragmented sleep',
                 imageCaption: '',
@@ -113,10 +114,12 @@
 
             // 2. Create product showcase (inline card after content)
             var productShowcaseHtml = createProductShowcase({
-                image: 'product/DR-transparent-tilted.png',
+                image: 'product/DR-product.jpg',
                 alt: 'Wildtype Deep Restore Sleep Tea',
+                headline: 'Wildtype Deep Restore',
                 description: 'Apple chamomile tea with advanced magnesium blend, L-Theanine, and Ashwagandha to support deeper, more restful sleep without melatonin.',
                 url: 'https://drinkwildtype.com/products/deep-restore',
+                ctaText: 'Learn more',
                 pageType: pageType
             });
             document.getElementById('deep-restore-showcase').innerHTML = productShowcaseHtml;

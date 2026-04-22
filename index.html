@@ -52,104 +52,283 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
+    <script src="assets/js/site-footer.js"></script>
     <!-- Load main JavaScript -->
     <script src="assets/js/main.js" defer></script>
 </head>
-<body>
-    <main>
-        <section class="hero-section py-5">
-            <div class="container">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6">
-                        <p class="mt-4 fs-5 text-start">
-                            Welcome to Better Sleep Guides, your trusted guide to sleep wellness. 
-                            Whether you're struggling with insomnia or looking to optimize your rest, we provide 
-                            expert advice, in-depth articles, and practical tips to help you get the quality sleep you deserve.
-                        </p>
+<body class="page-home">
+    <main class="home-main">
+        <section class="home-hero-wrap" aria-label="Featured">
+            <div class="home-inner home-hero-split">
+                <div class="home-hero-primary">
+                    <div class="home-hero-primary-media">
+                        <img src="assets/images/header-main-image.png" width="1694" height="2528" alt="" class="home-hero-primary-img" fetchpriority="high">
                     </div>
-                    <div class="col-lg-6 position-relative text-center hero-image-wrapper">
-                        <img src="assets/images/bsg-hero.png" class="img-fluid rounded hero-image-large"
-                            alt="Better Sleep Guides - Sleep mask and alarm clock">
-                    </div>
+                    <a href="stop-wasting-your-sleep.html" class="home-hero-float">
+                        <span class="home-hero-float-cat">Wellness</span>
+                        <span class="home-hero-float-title">Stop Wasting Your Sleep: 5 Secrets to Truly Feeling Rested</span>
+                        <span class="home-hero-float-deck">You can log eight hours and still feel foggy—here is how to make those hours actually restore you.</span>
+                    </a>
+                </div>
+                <aside class="home-hero-aside">
+                    <a href="we-tested-sleep-aids.html" class="home-hero-aside-card">
+                        <div class="home-hero-aside-media">
+                            <img src="assets/images/ksm-66.png" alt="" width="480" height="480">
+                        </div>
+                        <span class="home-hero-aside-label">Review</span>
+                        <span class="home-hero-aside-title">We tested five popular sleep supplements for four months.</span>
+                    </a>
+                    <div class="home-hero-aside-brand">Better Sleep Guides</div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="the-latest" class="home-latest" aria-labelledby="the-latest-heading">
+            <div class="home-inner">
+                <h2 id="the-latest-heading" class="home-block-title home-block-title--latest">The Latest</h2>
+                <div class="home-feed-grid home-feed-grid--3">
+                    <a href="stop-wasting-your-sleep.html" class="home-feed-card">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/header-main-image.png" alt="" width="1694" height="2528">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--wellness">Wellness</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">Stop Wasting Your Sleep: 5 Secrets to Truly Feeling Rested</h3>
+                            <p class="home-feed-deck">Turn long nights in bed into mornings that feel light and focused.</p>
+                        </div>
+                    </a>
+                    <a href="best-sleep-products.html" class="home-feed-card">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-2-hero.jpg" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--product">Product</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">Best Sleep Products to Transform Your Bedtime Routine</h3>
+                            <p class="home-feed-deck">Weighted blankets, pillowcases, and the small upgrades that earn their space on your nightstand.</p>
+                        </div>
+                    </a>
+                    <a href="we-tested-sleep-aids.html" class="home-feed-card">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/ksm-66.png" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--review">Review</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">We Tested 5 Sleep Supplements for 4 Months — Here's What Actually Works</h3>
+                            <p class="home-feed-deck">Twelve adult testers, five formulas, and the honest takeaways we wish existed before we bought bottles.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Articles (Max 6 entries) -->
-        <div class="container my-5" id="articles">
-            <section class="featured-content d-flex justify-content-between align-items-center mb-4">
-                        <h3>Latest Articles</h3>
-                <a href="blogs.html" class="read-all-link">
-                    <span>Read All</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-                    </section>
-            <div class="articles-gallery">
-                <div class="gallery-card">
-                    <img src="assets/images/article-1-hero.jpg" alt="Night routine for better sleep">
-                    <div class="gallery-card-content">
-                        <span class="article-category category-routine">ROUTINE</span>
-                        <h5>5 Small Routines Before Bed That Help You Sleep Well</h5>
-                        <p>Simple, consistent habits to wind down and fall asleep faster—no long or complicated ritual needed.</p>
-                        <a href="5-small-routines-for-better-sleep.html" class="custom-btn btn-sm shadow-sm">Read More</a>
-                    </div>
-                </div>
-                <div class="gallery-card">
-                    <img src="assets/images/article-2-hero.jpg" alt="Best sleep products">
-                    <div class="gallery-card-content">
-                        <span class="article-category category-product">PRODUCT</span>
-                        <h5>Best Sleep Products to Transform Your Bedtime Routine</h5>
-                        <p>Discover the sleep products that actually make a difference, from weighted blankets to silk pillowcases.</p>
-                        <a href="best-sleep-products.html" class="custom-btn btn-sm shadow-sm">Read More</a>
-                    </div>
-                </div>
-                <div class="gallery-card">
-                    <img src="assets/images/article-3-hero.jpg" alt="Sleep hygiene tips">
-                    <div class="gallery-card-content">
-                        <span class="article-category category-wellness">WELLNESS</span>
-                        <h5>Essential Sleep Hygiene Tips for Better Rest</h5>
-                        <p>Learn the habits and practices that lead to better, more restful sleep every night.</p>
-                        <a href="sleep-hygiene-tips.html" class="custom-btn btn-sm shadow-sm">Read More</a>
-                    </div>
-                </div>
-                <div class="gallery-card">
-                    <img src="assets/images/article-4-hero.jpg" alt="Insomnia solutions">
-                    <div class="gallery-card-content">
-                        <span class="article-category category-wellness">WELLNESS</span>
-                        <h5>Natural Insomnia Solutions That Actually Work</h5>
-                        <p>Discover gentle approaches to help you fall asleep and stay asleep without medication.</p>
-                        <a href="insomnia-solutions.html" class="custom-btn btn-sm shadow-sm">Read More</a>
-                    </div>
-                </div>
-                <div class="gallery-card">
-                    <img src="assets/images/article-5-hero.jpg" alt="Morning routine for better sleep">
-                    <div class="gallery-card-content">
-                        <span class="article-category category-routine">ROUTINE</span>
-                        <h5>How Your Morning Routine Affects Your Sleep</h5>
-                        <p>Discover morning habits that set you up for better sleep and more energy throughout the day.</p>
-                        <a href="morning-routine-better-sleep.html" class="custom-btn btn-sm shadow-sm">Read More</a>
-            </div>
-                </div>
-                <div class="gallery-card" data-category="routine">
-                    <img src="assets/images/ksm-66.png" alt="We spent 4 months testing 5 popular sleep supplements with 12 adult testers so you don't have to">
-                    <div class="gallery-card-content">
-                        <span class="article-category category-routine">ROUTINE</span>
-                        <h5>We Tested 5 Sleep Supplements for 4 Months — Here's What Actually Works</h5>
-                        <p>We spent 4 months testing 5 popular sleep supplements with 12 adult testers so you don't have to.</p>
-                        <a href="we-tested-sleep-aids.html" class="custom-btn btn-sm shadow-sm">Read More</a>
-                    </div>
-                </div>
-                <div class="gallery-card" data-category="wellness">
-                    <img src="assets/images/article-6-hero.jpg" alt="Stop wasting your sleep - truly feeling rested">
-                    <div class="gallery-card-content">
-                        <span class="article-category category-wellness">WELLNESS</span>
-                        <h5>Stop Wasting Your Sleep: 5 Secrets to Truly Feeling Rested</h5>
-                        <p>You sleep 7-8 hours but wake up exhausted? Discover the secrets to truly restorative sleep and waking up refreshed.</p>
-                        <a href="stop-wasting-your-sleep.html" class="custom-btn btn-sm shadow-sm">Read More</a>
-                    </div>
+        <section id="trending-now" class="home-trending" aria-labelledby="trending-heading">
+            <div class="home-inner">
+                <h2 id="trending-heading" class="home-trending-title">
+                    <img src="assets/images/trending-now.png" alt="Trending Now" width="1080" height="500" class="home-trending-title-img">
+                </h2>
+                <div class="home-feed-grid home-feed-grid--4">
+                    <a href="5-small-routines-for-better-sleep.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-1-hero.jpg" alt="" width="520" height="390">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--routine">Routine</span></p>
+                            <h3 class="home-feed-headline">5 Small Routines Before Bed That Help You Sleep Well</h3>
+                            <p class="home-feed-deck">Simple habits that help you wind down without a two-hour ritual.</p>
+                        </div>
+                    </a>
+                    <a href="insomnia-solutions.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-4-hero.jpg" alt="" width="520" height="390">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--wellness">Wellness</span></p>
+                            <h3 class="home-feed-headline">Natural Insomnia Solutions That Actually Work</h3>
+                            <p class="home-feed-deck">Gentle approaches to fall asleep and stay asleep without reaching for a prescription first.</p>
+                        </div>
+                    </a>
+                    <a href="morning-routine-better-sleep.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-5-hero.jpg" alt="" width="520" height="390">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--routine">Routine</span></p>
+                            <h3 class="home-feed-headline">How Your Morning Routine Affects Your Sleep</h3>
+                            <p class="home-feed-deck">Light, movement, and caffeine timing that set you up for an easier night.</p>
+                        </div>
+                    </a>
+                    <a href="sleep-hygiene-tips.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-3-hero.jpg" alt="" width="520" height="390">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--wellness">Wellness</span></p>
+                            <h3 class="home-feed-headline">Essential Sleep Hygiene Tips for Better Rest</h3>
+                            <p class="home-feed-deck">The baseline habits that quietly decide whether your night feels restorative or restless.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="category-routine" class="home-category" aria-labelledby="category-routine-heading">
+            <div class="home-inner">
+                <h2 id="category-routine-heading" class="home-block-title home-block-title--rule">Routine</h2>
+                <div class="home-feed-grid home-feed-grid--3">
+                    <a href="5-small-routines-for-better-sleep.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-1-hero.jpg" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--routine">Routine</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">5 Small Routines Before Bed That Help You Sleep Well</h3>
+                            <p class="home-feed-deck">Consistent wind-down steps that make “lights out” predictable, not stressful.</p>
+                        </div>
+                    </a>
+                    <a href="morning-routine-better-sleep.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-5-hero.jpg" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--routine">Routine</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">How Your Morning Routine Affects Your Sleep</h3>
+                            <p class="home-feed-deck">Align your first hour with your circadian rhythm so bedtime stops fighting you.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="category-wellness" class="home-category" aria-labelledby="category-wellness-heading">
+            <div class="home-inner">
+                <h2 id="category-wellness-heading" class="home-block-title home-block-title--rule">Wellness</h2>
+                <div class="home-feed-grid home-feed-grid--3">
+                    <a href="sleep-hygiene-tips.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-3-hero.jpg" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--wellness">Wellness</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">Essential Sleep Hygiene Tips for Better Rest</h3>
+                            <p class="home-feed-deck">Room, light, and schedule tweaks that add up faster than any single “sleep hack.”</p>
+                        </div>
+                    </a>
+                    <a href="insomnia-solutions.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-4-hero.jpg" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--wellness">Wellness</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">Natural Insomnia Solutions That Actually Work</h3>
+                            <p class="home-feed-deck">Evidence-leaning habits and tools when your mind will not switch off at night.</p>
+                        </div>
+                    </a>
+                    <a href="stop-wasting-your-sleep.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/header-main-image.png" alt="" width="1694" height="2528">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--wellness">Wellness</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">Stop Wasting Your Sleep: 5 Secrets to Truly Feeling Rested</h3>
+                            <p class="home-feed-deck">Why “enough” sleep still leaves you tired—and what to change first.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="category-product" class="home-category" aria-labelledby="category-product-heading">
+            <div class="home-inner">
+                <h2 id="category-product-heading" class="home-block-title home-block-title--rule">Product</h2>
+                <div class="home-feed-grid home-feed-grid--3">
+                    <a href="best-sleep-products.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/article-2-hero.jpg" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--product">Product</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">Best Sleep Products to Transform Your Bedtime Routine</h3>
+                            <p class="home-feed-deck">The buys that consistently come up when we talk to readers who sleep better.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="category-testing" class="home-category" aria-labelledby="category-testing-heading">
+            <div class="home-inner">
+                <h2 id="category-testing-heading" class="home-block-title home-block-title--rule">Review</h2>
+                <p class="home-category-intro">Hands-on tests and long trials—what held up and what did not.</p>
+                <div class="home-feed-grid home-feed-grid--3">
+                    <a href="we-tested-sleep-aids.html" class="home-feed-card home-feed-card--plain">
+                        <div class="home-feed-card-media">
+                            <img src="assets/images/ksm-66.png" alt="" width="640" height="400">
+                        </div>
+                        <div class="home-feed-card-body">
+                            <p class="home-feed-meta"><span class="home-feed-cat home-feed-cat--review">Review</span><span class="home-feed-dot" aria-hidden="true"> · </span><time datetime="2026-04-01">Updated Apr 2026</time></p>
+                            <h3 class="home-feed-headline">We Tested 5 Sleep Supplements for 4 Months — Here's What Actually Works</h3>
+                            <p class="home-feed-deck">Four months, twelve testers, and the formulas worth skipping versus keeping.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="meet-editors" class="home-category home-category--last home-editors" aria-labelledby="meet-editors-heading">
+            <div class="home-inner">
+                <h2 id="meet-editors-heading" class="home-block-title home-block-title--rule">Meet the editors</h2>
+                <div class="home-editors-grid">
+                    <article class="home-editor-card">
+                        <img class="home-editor-photo" src="assets/images/editor-maria.jpg" width="800" height="800" alt="Portrait of Maria Delgado" loading="lazy">
+                        <div class="home-editor-text-block">
+                            <div class="home-editor-rule" aria-hidden="true"></div>
+                            <div class="home-editor-copy">
+                                <h3 class="home-editor-name">Maria Delgado</h3>
+                                <p class="home-editor-title">Editor in Chief</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Specialty:</span> Sleep science &amp; circadian rhythm</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Chronotype:</span> Night owl</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="home-editor-card">
+                        <img class="home-editor-photo" src="assets/images/editor-helena.jpg" width="800" height="800" alt="Portrait of Helena Voss" loading="lazy">
+                        <div class="home-editor-text-block">
+                            <div class="home-editor-rule" aria-hidden="true"></div>
+                            <div class="home-editor-copy">
+                                <h3 class="home-editor-name">Helena Voss</h3>
+                                <p class="home-editor-title">Editorial Director</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Specialty:</span> Product reviews &amp; hands-on testing</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Chronotype:</span> Morning lark</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="home-editor-card">
+                        <img class="home-editor-photo" src="assets/images/editor-liz.jpg" width="800" height="800" alt="Portrait of Liz Brennan" loading="lazy">
+                        <div class="home-editor-text-block">
+                            <div class="home-editor-rule" aria-hidden="true"></div>
+                            <div class="home-editor-copy">
+                                <h3 class="home-editor-name">Liz Brennan</h3>
+                                <p class="home-editor-title">Senior Editor</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Specialty:</span> Routines &amp; habit design</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Chronotype:</span> Shift-friendly / mixed</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="home-editor-card">
+                        <img class="home-editor-photo" src="assets/images/editor-reina.JPG" width="800" height="800" alt="Portrait of Reina Nakamura" loading="lazy">
+                        <div class="home-editor-text-block">
+                            <div class="home-editor-rule" aria-hidden="true"></div>
+                            <div class="home-editor-copy">
+                                <h3 class="home-editor-name">Reina Nakamura</h3>
+                                <p class="home-editor-title">Contributing Editor</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Specialty:</span> Wellness, stress &amp; sleep</p>
+                                <p class="home-editor-attr"><span class="home-editor-attr-label">Chronotype:</span> Light sleeper</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
