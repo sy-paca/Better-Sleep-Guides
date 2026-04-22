@@ -93,7 +93,6 @@
 
                                 <!-- Product Card -->
                                 <div id="deep-restore-showcase"></div>
-                                <div id="article-mobile-product-insert" class="article-mobile-product-insert"></div>
                             </div>
                             <div class="article-section">
                                 <h2>5. Keep your bedroom for sleep</h2>
@@ -140,8 +139,6 @@
                 pageType: pageType
             });
             document.getElementById('deep-restore-showcase').innerHTML = productShowcaseHtml;
-            var mobileInsert = document.getElementById('article-mobile-product-insert');
-            if (mobileInsert) mobileInsert.innerHTML = productShowcaseHtml;
 
             if (typeof injectArticleDesktopRailAd === 'function') {
                 injectArticleDesktopRailAd(pageType);
