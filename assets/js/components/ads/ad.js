@@ -2,13 +2,39 @@
 // createAd — rich unit with background image + copy (see createAd below)
 // createVerticalDisplayAd — tall display image only
 // createArticleBannerAd — full-width image + eyebrow + overlay copy + CTA (sharp corners)
+// createPacagenArticleBannerAd(pageType) — horizontal product-lineup unit (pacagen-products.jpg + pacagen-link)
 // injectRandomArticleBanners(pageType) — inserts two banners at random positions between .article-section blocks
-// injectArticleDesktopRailAd(pageType) — two-column grid + sticky vertical rail (Summer Fridays or Blue Bottle, 50/50, desktop; reveals at 50% read)
+// injectArticleDesktopRailAd(pageType) — sticky desktop rail (Pacagen 50%, Summer Fridays / Blue Bottle 25% each; reveals at 50% read)
 // Usage: createVerticalDisplayAd({ image: 'adv/aesop.png', alt: 'Aesop', ctaUrl: 'https://...', pageType: 'root' })
-// injectArticleVerticalAds(pageType) — fills #article-vertical-ads with two default vertical units
+// injectArticleVerticalAds(pageType) — fills #article-vertical-ads with Pacagen + one third-party unit
+// createPacagenVerticalAd(pageType) — standalone Pacagen vertical unit (sidebar / manual placement)
 
 (function() {
     'use strict';
+
+    const PACAGEN_VERTICAL_AD = {
+        id: 'pacagen',
+        image: 'adv/pacagen-cans-vertical.jpg',
+        alt: 'Pacagen Cat Allergen Neutralizing Spray',
+        kicker: 'Pacagen',
+        headline: 'Cat Allergen Neutralizing Spray',
+        deck: 'Science-backed relief for cat allergens in the air—so bedtime feels calmer.',
+        ctaText: 'Shop now',
+        ctaUrl: 'https://www.pacagen.com/products/cat-allergen-neutralizing-spray',
+        hitAria: 'Shop Pacagen Cat Allergen Neutralizing Spray'
+    };
+
+    const PACAGEN_HORIZONTAL_AD = {
+        id: 'pacagen',
+        image: 'adv/pacagen-products.jpg',
+        alt: 'Pacagen cat, dog, and dust allergen supplements and neutralizing sprays',
+        kicker: 'Pacagen',
+        headline: 'Fewer allergens in the air you breathe at night',
+        deck: 'Science-backed sprays and supplements for cat, dog, and dust allergens—so bedtime feels calmer.',
+        ctaText: 'Shop Pacagen',
+        ctaUrl: 'https://www.pacagen.com/',
+        hitAria: 'Shop Pacagen allergen solutions'
+    };
     
     function resolveImagePath(image, pageType) {
         const assetPath = pageType === 'blog' ? '../assets' : 'assets';
@@ -81,6 +107,38 @@
         `.trim();
     }
 
+    /**
+     * Full-width horizontal Pacagen banner (product lineup). Whole unit is pacagen-link tracked.
+     */
+    function createPacagenArticleBannerAd(pageType) {
+        const pt = pageType === 'blog' ? 'blog' : 'root';
+        const v = PACAGEN_HORIZONTAL_AD;
+        const imgPath = resolveImagePath(v.image, pt);
+
+        return `
+            <aside class="article-banner-ad article-banner-ad--pacagen" data-ad="pacagen-banner" role="complementary" aria-label="Advertisement">
+              <p class="article-banner-ad-eyebrow">Advertisement</p>
+              <a class="article-banner-ad-hit pacagen-link" href="${escapeAttr(v.ctaUrl)}" aria-label="${escapeAttr(v.hitAria)}">
+                <div class="article-banner-ad-shell article-banner-ad-shell--pacagen">
+                  <img class="article-banner-ad-image" src="${imgPath}" alt="${escapeAttr(v.alt)}" loading="lazy" width="1200" height="400">
+                  <div class="article-banner-ad-overlay article-banner-ad-overlay--pacagen">
+                    <h3 class="article-banner-ad-headline">${escapeHtml(v.headline)}</h3>
+                    <p class="article-banner-ad-deck">${escapeHtml(v.deck)}</p>
+                    <span class="article-banner-ad-cta article-banner-ad-cta--pacagen">${escapeHtml(v.ctaText)}</span>
+                  </div>
+                </div>
+              </a>
+            </aside>
+        `.trim();
+    }
+
+    function renderArticleBannerFromConfig(config) {
+        if (config && config.id === 'pacagen') {
+            return createPacagenArticleBannerAd(config.pageType);
+        }
+        return createArticleBannerAd(config);
+    }
+
     function shuffleInPlace(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -110,6 +168,7 @@
     function defaultArticleBannerConfigs(pageType) {
         const pt = pageType === 'blog' ? 'blog' : 'root';
         return [
+            { id: 'pacagen', pageType: pt },
             {
                 image: 'adv/aesop.png',
                 alt: 'Aesop',
@@ -145,8 +204,8 @@
             container.querySelectorAll(':scope > .article-section')
         );
         const configs = shuffleInPlace(defaultArticleBannerConfigs(pageType));
-        const htmlA = createArticleBannerAd(configs[0]);
-        const htmlB = createArticleBannerAd(configs[1]);
+        const htmlA = renderArticleBannerFromConfig(configs[0]);
+        const htmlB = renderArticleBannerFromConfig(configs[1]);
 
         if (sections.length === 0) {
             container.insertAdjacentHTML('beforeend', htmlA);
@@ -172,44 +231,81 @@
     }
 
     /**
-     * One of two vertical rail creatives per article (50/50). Desktop CSS: white “shop now” on art.
+     * Desktop rail: Pacagen (50%) or one of two third-party verticals (25% each).
+     * Pacagen uses overlay copy + pacagen-link tracking; others are image + ghost CTA.
      */
     function pickDesktopRailVariant() {
-        if (Math.random() < 0.5) {
+        const roll = Math.random();
+        if (roll < 0.5) {
+            return Object.assign({}, PACAGEN_VERTICAL_AD);
+        }
+        if (roll < 0.75) {
             return {
                 id: 'summer-fridays',
                 image: 'adv/summer-fridays.png',
                 alt: 'Summer Fridays Jet Lag Eye Patches',
-                hitAria: 'Shop Summer Fridays'
+                hitAria: 'Shop Summer Fridays',
+                ctaUrl: '#'
             };
         }
         return {
             id: 'blue-bottle',
             image: 'adv/blue-bottle.png',
             alt: 'Blue Bottle Coffee',
-            hitAria: 'Shop Blue Bottle'
+            hitAria: 'Shop Blue Bottle',
+            ctaUrl: '#'
         };
+    }
+
+    function buildThirdPartyRailMedia(v, imgPath) {
+        return `
+              <div class="article-desktop-rail-ad-media">
+                <img class="article-desktop-rail-ad-img" src="${imgPath}" alt="${escapeAttr(v.alt)}" loading="lazy" width="320" height="560">
+                <span class="article-desktop-rail-ad-cta">Shop now</span>
+              </div>
+        `.trim();
+    }
+
+    function buildPacagenRailMedia(v, imgPath) {
+        return `
+              <div class="article-desktop-rail-ad-media article-desktop-rail-ad-media--pacagen">
+                <img class="article-desktop-rail-ad-img" src="${imgPath}" alt="${escapeAttr(v.alt)}" loading="lazy" width="320" height="560">
+                <div class="article-desktop-rail-ad-copy">
+                  <p class="article-desktop-rail-ad-kicker">${escapeHtml(v.kicker)}</p>
+                  <h3 class="article-desktop-rail-ad-headline">${escapeHtml(v.headline)}</h3>
+                  <p class="article-desktop-rail-ad-deck">${escapeHtml(v.deck)}</p>
+                  <span class="article-desktop-rail-ad-cta article-desktop-rail-ad-cta--pacagen">${escapeHtml(v.ctaText)}</span>
+                </div>
+              </div>
+        `.trim();
     }
 
     function buildArticleDesktopRailMarkup(pageType) {
         const v = pickDesktopRailVariant();
         const pt = pageType === 'blog' ? 'blog' : 'root';
         const imgPath = resolveImagePath(v.image, pt);
-        const ctaUrl = '#';
+        const isPacagen = v.id === 'pacagen';
+        const ctaUrl = v.ctaUrl || '#';
         const clickable = Boolean(ctaUrl && ctaUrl !== '#');
-        const media = `
-              <div class="article-desktop-rail-ad-media">
-                <img class="article-desktop-rail-ad-img" src="${imgPath}" alt="${escapeAttr(v.alt)}" loading="lazy" width="320" height="560">
-                <span class="article-desktop-rail-ad-cta">Shop now</span>
-              </div>
-        `.trim();
-        const hitOpen = clickable
-            ? `<a class="article-desktop-rail-ad-hit" href="${escapeAttr(ctaUrl)}" target="_blank" rel="sponsored noopener noreferrer" aria-label="${escapeAttr(v.hitAria)}">`
-            : '<div class="article-desktop-rail-ad-hit">';
+        const media = isPacagen
+            ? buildPacagenRailMedia(v, imgPath)
+            : buildThirdPartyRailMedia(v, imgPath);
+
+        let hitOpen;
+        if (!clickable) {
+            hitOpen = '<div class="article-desktop-rail-ad-hit">';
+        } else if (isPacagen) {
+            hitOpen = `<a class="article-desktop-rail-ad-hit pacagen-link" href="${escapeAttr(ctaUrl)}" aria-label="${escapeAttr(v.hitAria)}">`;
+        } else {
+            hitOpen = `<a class="article-desktop-rail-ad-hit" href="${escapeAttr(ctaUrl)}" target="_blank" rel="sponsored noopener noreferrer" aria-label="${escapeAttr(v.hitAria)}">`;
+        }
         const hitClose = clickable ? '</a>' : '</div>';
+        const asideClass = isPacagen
+            ? 'article-desktop-rail-ad article-desktop-rail-ad--pacagen'
+            : 'article-desktop-rail-ad';
 
         return `
-            <aside id="article-desktop-rail-ad" class="article-desktop-rail-ad" data-ad="rail" data-rail-creative="${escapeAttr(v.id)}" role="complementary" aria-label="Advertisement" aria-hidden="true">
+            <aside id="article-desktop-rail-ad" class="${asideClass}" data-ad="rail" data-rail-creative="${escapeAttr(v.id)}" role="complementary" aria-label="Advertisement" aria-hidden="true">
               <p class="article-desktop-rail-ad-eyebrow">Advertisement</p>
               ${hitOpen}
                 ${media}
@@ -339,6 +435,32 @@
         `.trim();
     }
 
+    /**
+     * Pacagen vertical unit with overlay copy (for sidebar stacks or manual placement).
+     */
+    function createPacagenVerticalAd(pageType) {
+        const pt = pageType === 'blog' ? 'blog' : 'root';
+        const v = PACAGEN_VERTICAL_AD;
+        const imgPath = resolveImagePath(v.image, pt);
+
+        return `
+            <aside class="ad-section ad-vertical ad-vertical--pacagen" data-ad="pacagen">
+              <a class="ad-vertical-link pacagen-link" href="${escapeAttr(v.ctaUrl)}" aria-label="${escapeAttr(v.hitAria)}">
+                <div class="ad-vertical-media ad-vertical-media--pacagen">
+                  <img class="ad-vertical-img" src="${imgPath}" alt="${escapeAttr(v.alt)}" loading="lazy" width="300" height="600">
+                  <div class="ad-vertical-copy">
+                    <p class="ad-vertical-kicker">${escapeHtml(v.kicker)}</p>
+                    <h3 class="ad-vertical-headline">${escapeHtml(v.headline)}</h3>
+                    <p class="ad-vertical-deck">${escapeHtml(v.deck)}</p>
+                    <span class="ad-vertical-cta">${escapeHtml(v.ctaText)}</span>
+                  </div>
+                </div>
+              </a>
+              <span class="ad-label">Ad</span>
+            </aside>
+        `.trim();
+    }
+
     function injectArticleVerticalAds(pageType) {
         const el = document.getElementById('article-vertical-ads');
         if (!el) {
@@ -346,8 +468,8 @@
         }
         const pt = pageType === 'blog' ? 'blog' : 'root';
         el.innerHTML =
-            createVerticalDisplayAd({ image: 'adv/aesop.png', alt: 'Aesop', ctaUrl: '#', pageType: pt }) +
-            createVerticalDisplayAd({ image: 'adv/rhode.png', alt: 'Rhode', ctaUrl: '#', pageType: pt });
+            createPacagenVerticalAd(pt) +
+            createVerticalDisplayAd({ image: 'adv/aesop.png', alt: 'Aesop', ctaUrl: '#', pageType: pt });
     }
 
     function createAd(config) {
@@ -402,7 +524,9 @@
     
     window.createAd = createAd;
     window.createVerticalDisplayAd = createVerticalDisplayAd;
+    window.createPacagenVerticalAd = createPacagenVerticalAd;
     window.createArticleBannerAd = createArticleBannerAd;
+    window.createPacagenArticleBannerAd = createPacagenArticleBannerAd;
     window.injectRandomArticleBanners = injectRandomArticleBanners;
     window.injectArticleDesktopRailAd = injectArticleDesktopRailAd;
     window.injectArticleVerticalAds = injectArticleVerticalAds;
